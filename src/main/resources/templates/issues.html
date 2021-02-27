@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title th:utext="#{label.pages.issues.title}">Editors</title>
+</head>
+<body>
+<nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <div th:switch="${issues}">
+        <h2 th:case="null" th:utext="#{text.pages.issues.noissues}"></h2>
+        <div th:case="*">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col" th:utext="#{text.pages.issues.issuesnumber}"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr scope="row" th:each="issue : ${issues}">
+                    <td><a th:href="@{/issue/{id}(id=${issue.idIssue})}" th:utext="${issue.number}"></a></td>
+                    <td><a th:href="@{/editissue/{id}(id=${issue.idIssue})}" th:utext="#{text.pages.issues.editlink}"></a></td>
+                    <td><a th:href="@{/deleteissue/{id}(id=${issue.idIssue})}" th:utext="#{text.pages.issues.deletelink}"></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<footer class="footer"th:insert="~{footer :: footer}">
+</footer>
+</body>
+</html>

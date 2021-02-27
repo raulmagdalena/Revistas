@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <title th:utext="#{label.pages.index.title}"></title>
+</head>
+<body>
+<nav th:insert="~{navigation :: navigation}">
+
+</nav>
+<div class="container">
+    <h1 th:utext="#{label.pages.index.message}"></h1>
+</div>
+
+<div th:insert="~{footer :: footer}"></div>
+
+</body>
+</html>

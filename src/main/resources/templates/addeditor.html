@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title th:utext="#{label.pages.neweditor.title}"></title>
+</head>
+<body>
+<nav th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <main>
+        <div class="py-5 center">
+            <form action="#" method="post" th:object="${editor}" th:action="@{/addeditor}">
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.neweditor.editorname}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="editorname" th:field="*{editorName}"/>
+                            <span th:if="${#fields.hasErrors('editorName')}" th:errors="*{editornName}"></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" th:utext="#{label.pages.neweditor.submit}"></button>
+            </form>
+        </div>
+    </main>
+</div>
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

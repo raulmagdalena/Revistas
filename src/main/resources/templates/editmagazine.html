@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title th:utext="#{label.pages.editmagazine.title}"></title>
+</head>
+<body>
+<nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <main>
+        <div class="py-5 center">
+            <form method="post" th:action="@{/updatemagazine/{id}(id=${magazine.idMagazine})}" th:object="${magazine}">
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:text="#{label.pages.editmagazine.magazinename}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" th:field="*{magazineName}" size="128">
+                        </div>
+                        <label th:text="#{label.pages.editmagazine.editor}"></label>
+                        <div class="input-group">
+                            <select class="form-control" th:field="*{editor}">
+                                <option th:each="editor : ${editors}" th:value="${editor.idEditor}" th:text="${editor.editorName}" th:selected="${editor.idEditor == magazine.editor}">
+                                </option>
+                            </select>
+                        </div>
+                        <label th:text="#{label.pages.editmagazine.issn}"></label>
+                        <div class="input-group">
+                            <input type="text" pattern="[\S]{4}\-[\S]{4}" class="form-control" th:field="*{magazineIssn}">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-primary" type="submit" th:text="#{label.pages.editmagazine.submit}"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+<footer class="footer"th:insert="~{footer :: footer}">
+</footer>
+</body>
+</html>

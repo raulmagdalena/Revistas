@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title th:utext="#{label.pages.newmagazine.title}"></title>
+</head>
+<body>
+<nav th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <main>
+        <div class="py-5 center">
+            <form action="#" method="post" th:object="${magazine}" th:action="@{/savemagazine}">
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newmagazine.magazinename}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="magazinename" th:field="*{magazineName}"/>
+                            <span th:if="${#fields.hasErrors('magazineName')}" th:errors="*{magazineName}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newmagazine.editor}"></label>
+                        <div class="input-group">
+                            <select th:field="*{editor}" class="form-control" required>
+                                <th:block th:each="edit : ${editors}">
+                                    <option th:text="${edit.editorName}" th:value="${edit.idEditor}" />
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newmagazine.issn}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="magazineIssn" th:field="*{magazineIssn}"/>
+                            <span th:if="${#fields.hasErrors('magazineIssn')}" th:errors="*{magazineIssn}"></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" th:utext="#{label.pages.newmagazine.submit}"></button>
+            </form>
+        </div>
+    </main>
+</div>
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

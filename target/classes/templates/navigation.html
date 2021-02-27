@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="navbar navbar-default fixed-top bg-dark" th:fragment="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" th:utext="#{label.pages.index.title}">home</a>
+        </div>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/editors">Editors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/magazines">Revistes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/issues">Edicions</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{/logout}" th:utext="#{label.pages.logout}"></a></li>
+            </ul>
+    </div>
+</div>
+</body>
+</html>

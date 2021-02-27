@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title th:utext="#{label.pages.magazine.title}"></title>
+</head>
+<body>
+<nav th:insert="~{navigation :: navigation}">
+
+</nav>
+<div class="container">
+    <h1 th:utext="#{label.pages.magazine.message}"></h1>
+</div>
+
+<div class="container">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="" alt="">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${magazine.magazineName}"></h5>
+                    <p class="card-text"><a th:href="@{/editor/{id}(id=${magazine.editor.idEditor})}" th:text="${magazine.editor.editorName}"></a></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${magazine.magazineIssn}"></h5>
+                    <p class="card-text" th:text="${magazine.editor.editorName}"></p>
+                </div>
+            </div>
+            <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
+            <span th:if="${magazine.issues != null}"></span>
+                <ul  class="list-group list-group-flush" th:each="issue : ${magazine.issues}">
+                    <li class="list-group-item"><a th:href="@{/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
+                </ul>
+            <span th:unless="${magazine.issues == null}"></span>
+                <p th:text="#{text.pages.magazine.noissues}"></p>
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

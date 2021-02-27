@@ -1,0 +1,70 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title th:utext="#{label.pages.newissue.title}"></title>
+</head>
+<body>
+<nav th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <main>
+        <div class="py-5 center">
+            <form action="#" method="post" th:object="${issue}" th:action="@{/issues/saveissue}">
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newissue.issuenumber}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="number" th:field="*{number}"/>
+                            <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newissue.issuedate}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="issueDate" th:field="*{issueDate}"/>
+                            <span th:if="${#fields.hasErrors('issueDate')}" th:errors="*{issueDate}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newissue.issuepages}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="pages" th:field="*{pages}"/>
+                            <span th:if="${#fields.hasErrors('pages')}" th:errors="*{pages}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newissue.issueissn}"></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="issueIssn" th:field="*{issueIssn}"/>
+                            <span th:if="${#fields.hasErrors('issueIssn')}" th:errors="*{issueIssn}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mb-3">
+                        <label th:utext="#{label.pages.newissue.magazine}"></label>
+                        <div class="input-group">
+                            <select th:field="*{magazine}" class="form-control" required>
+                                <th:block th:each="magazine : ${magazines}">
+                                    <option th:text="${magazine.magazineName}" th:value="${magazine.idMagazine}" />
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" th:utext="#{label.pages.newissue.submit}"></button>
+            </form>
+        </div>
+    </main>
+</div>
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

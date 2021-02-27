@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title th:utext="#{label.pages.magazines.title}">Editors</title>
+</head>
+<body>
+<nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <div th:switch="${magazines}">
+        <h2 th:case="null" th:utext="#{text.pages.magazines.nomagazines}"></h2>
+            <div th:case="*">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" th:utext="#{text.pages.magazines.themagazinename}"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr scope="row" th:each="magazine : ${magazines}">
+                            <td><a th:href="@{/magazine/{id}(id=${magazine.idMagazine})}" th:utext="${magazine.magazineName}"></a></td>
+                            <td><a th:href="@{/editmagazine/{id}(id=${magazine.idMagazine})}" th:utext="#{text.pages.magazines.editlink}"></a></td>
+                            <td><a th:href="@{/deletemagazine/{id}(id=${magazine.idMagazine})}" th:utext="#{text.pages.magazines.deletelink}"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+</div>
+<footer class="footer"th:insert="~{footer :: footer}">
+</footer>
+</body>
+</html>
