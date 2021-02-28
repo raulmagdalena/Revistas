@@ -4,7 +4,6 @@ package com.revistas.controllers;
 import com.revistas.entities.Issue;
 import com.revistas.entities.Magazine;
 import com.revistas.exceptions.IssueNotFoundException;
-import com.revistas.exceptions.MagazineNotFoundException;
 import com.revistas.repositories.IssueRepository;
 import com.revistas.repositories.MagazineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +30,10 @@ public class IssueController {
     }
 
     //Get all issues
-    @GetMapping("/issues")
+    @GetMapping("/")
     public String getAllIssues(Model model){
         model.addAttribute("issues", repository.findAll());
-        return "issues";
+        return "/issues";
     }
 
     //Create a new issue
@@ -43,7 +42,7 @@ public class IssueController {
         List<Magazine> listMagazines = magazineRepository.findAll();
         model.addAttribute("issue", new Issue());
         model.addAttribute("magazines", listMagazines);
-        return " addissue";
+        return "addissue";
     }
 
     //Save the issue
