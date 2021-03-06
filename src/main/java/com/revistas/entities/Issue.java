@@ -33,8 +33,8 @@ public class Issue {
     @Column(name = "issue_issn")
     private String issueIssn;
 
-    @ManyToOne(targetEntity = Magazine.class)
-    @JoinColumn(name = "magazine_id")
+    @ManyToOne(targetEntity = Magazine.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_magazine")
     private Magazine magazine;
 
     @CreationTimestamp

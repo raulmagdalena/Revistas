@@ -5,11 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f024af13-78b7-4a08-8b1d-56eeab8863a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/AuthorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/AuthorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/searchcategories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/AuthorController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Tag.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/repositories/AuthorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/EditorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/EditorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/MagazineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/MagazineRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/css/sticky-footer-navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/sticky-footer-navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addissue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addmagazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addmagazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Author.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/repositories/MagazineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/repositories/MagazineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/addissue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/addmagazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/addmagazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/editor.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -55,9 +90,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static/css/css" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/editors" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
+      <recent name="$PROJECT_DIR$/src/main/resources/css" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/css/css/css" />
     </key>
   </component>
   <component name="RunManager" selected="Application.RevistasApplication">
@@ -134,5 +171,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/Revistas" />
+    </ignored-roots>
   </component>
 </project>

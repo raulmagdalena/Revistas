@@ -32,6 +32,9 @@ public class Magazine {
     @OneToMany(targetEntity = Issue.class, mappedBy = "magazine", cascade = CascadeType.MERGE)
     private List<Issue> issues = new ArrayList<Issue>();
 
+    @ManyToMany(mappedBy = "categoryMagazines")
+    private List<Category> categories = new ArrayList<Category>();
+
     @CreationTimestamp
     @Column(name = "create_date_time")
     private java.sql.Timestamp createDateTime;
@@ -80,6 +83,14 @@ public class Magazine {
 
     public void setIssues(List<Issue> issues) {
         this.issues = issues;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public Timestamp getCreateDateTime() {

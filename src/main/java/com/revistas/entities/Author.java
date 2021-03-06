@@ -1,6 +1,10 @@
 package com.revistas.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -18,6 +22,14 @@ public class Author {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "rel_authors_articles", joinColumns = @JoinColumn(name = "fk_author", nullable = false), inverseJoinColumns = @JoinColumn(name = "fk_article", nullable = false))
     private List<Article> articles;
+
+    @CreationTimestamp
+    @Column(name = "creation_date_time")
+    private java.sql.Timestamp createDateTime;
+
+    @UpdateTimestamp
+    @Column(name = "update_date_time")
+    private java.sql.Timestamp updateDateTime;
 
     //TODO add fields for biography
 
@@ -49,5 +61,21 @@ public class Author {
 
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+
+    public Timestamp getCreateDateTime() {
+        return createDateTime;
+    }
+
+    public void setCreateDateTime(Timestamp createDateTime) {
+        this.createDateTime = createDateTime;
+    }
+
+    public Timestamp getUpdateDateTime() {
+        return updateDateTime;
+    }
+
+    public void setUpdateDateTime(Timestamp updateDateTime) {
+        this.updateDateTime = updateDateTime;
     }
 }

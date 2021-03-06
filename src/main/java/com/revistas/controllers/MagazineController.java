@@ -1,8 +1,10 @@
 package com.revistas.controllers;
 
+import com.revistas.entities.Category;
 import com.revistas.entities.Editor;
 import com.revistas.entities.Magazine;
 import com.revistas.exceptions.MagazineNotFoundException;
+import com.revistas.repositories.CategoryRepository;
 import com.revistas.repositories.EditorRepository;
 import com.revistas.repositories.MagazineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class MagazineController {
     private MagazineRepository repository;
     @Autowired
     private EditorRepository editorRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public MagazineController(MagazineRepository repository){
         this.repository = repository;
@@ -60,11 +64,17 @@ public class MagazineController {
 
 
     //Create a new magazine
-    @GetMapping("/new")
-    public String newMagazineForm(Model model){
-        List<Editor> listEditors = editorRepository.findAll();
-        model.addAttribute("magazine", new Magazine());
-        model.addAttribute("editors", listEditors);
+    @GetMapping(value = {"/new", "/new/{idEditor}"})
+    public String newMagazineForm(@PathVariable(required = false) Long idEditor, Model model){
+        if(idEditor == null) {
+            List<Editor> listEditors = editorRepository.findAll();
+            model.addAttribute("magazine", new Magazine());
+            model.addAttribute("editors", listEditors);
+        }else{
+            Editor editor = editorRepository.findById(idEditor);
+            model.addAttribute("magazine", new Magazine());
+            model.addAttribute("editor", editor);
+        }
         return "addmagazine";
     }
 
@@ -82,11 +92,19 @@ public class MagazineController {
             magazine.setIdMagazine(id);
             return "editmagazine";
         }
-        Magazine magazineUpdate = repository.getOne(id);
+        Magazine magazineUpdate = repository.findByIdMagazine(id);
         magazineUpdate.setMagazineName(magazine.getMagazineName());
         magazineUpdate.setMagazineIssn(magazine.getMagazineIssn());
         repository.save(magazineUpdate);
         return "redirect:/magazine/" + magazineUpdate.getIdMagazine();
+    }
+
+    //Get all the categories for the autocomplete
+    @RequestMapping(value = "magazines/autocomplete")
+    @ResponseBody
+    public List<String> autoComplete(@RequestParam(value = "term", required = false, defaultValue = "") String term){
+        List<String> categoriesList = categoryRepository.getCategories(term);
+        return categoriesList;
     }
 
     //Utility functions

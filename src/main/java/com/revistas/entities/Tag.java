@@ -1,27 +1,22 @@
 package com.revistas.entities;
 
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
-@Table(name = "articles")
-public class Article {
+@Table(name = "tags")
+public class Tag {
 
     @Id
-    @Column(name = "id_article")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idArticle;
+    @Column(name = "id_tag")
+    private Long idTag;
 
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    @ManyToMany(mappedBy = "articles")
-    private List<Author> authors;
+    @Column(name = "tag_name")
+    private String tagName;
 
     @CreationTimestamp
     @Column(name = "creation_date_time")
@@ -31,34 +26,20 @@ public class Article {
     @Column(name = "update_date_time")
     private java.sql.Timestamp updateDateTime;
 
-
-    public Article(String title, List<Author> authors) {
-        this.title = title;
-        this.authors = authors;
+    public Long getIdTag() {
+        return idTag;
     }
 
-    public Long getIdArticle() {
-        return idArticle;
+    public void setIdTag(Long idTag) {
+        this.idTag = idTag;
     }
 
-    public void setIdArticle(Long idArticle) {
-        this.idArticle = idArticle;
+    public String getTagName() {
+        return tagName;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
     }
 
     public Timestamp getCreateDateTime() {

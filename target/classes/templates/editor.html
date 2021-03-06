@@ -24,7 +24,7 @@
                 <p th:utext="#{text.pages.editor.nomagazines}"></p>
         </div>
         <div class="card-footer">
-            <a th:href="@{/addmagazine/{idEditor}(idEditor=${editor.idEditor})}" th:utext="#{text.pages.editor.addmagazine}"></a>
+            <a th:href="@{/new/{idEditor}(idEditor=${editor.idEditor})}" th:utext="#{text.pages.editor.addmagazine}"></a>
         </div>
     </div>
 </div>
