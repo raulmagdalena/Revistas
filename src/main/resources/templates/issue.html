@@ -25,17 +25,23 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        mb-3
+                        <label th:text="#{label.pages.issue.issuenumber}"></label><li class="list-group-item" th:text="${issue.number}"></li>
+                        <label th:text="#{label.pages.issue.issuepages}"></label><li class="list-group-item" th:text="${issue.pages}"></li>
+                        <label th:text="#{label.pages.issue.issuedate}"></label><li class="list-group-item" th:text="${issue.issueDate}"></li>
+                        <label th:text="#{label.pages.issue.issueissn}"></label><li class="list-group-item" th:text="${issue.issueIssn}"></li>
                     </ul>
                 </div>
             </div>
-            <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
-            <span th:if="${magazine.issues != null}"></span>
-            <ul  class="list-group list-group-flush" th:each="issue : ${magazine.issues}">
-                <li class="list-group-item"><a th:href="@{/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
+            <div class="card-header" th:text="#{text.pages.issue.articles}"></div>
+            <span th:if="${issue.articles != null}"></span>
+            <ul class="list-group list-group-flush" th:each="article : ${issues.articles}">
+                <li class="list-group-item"><a th:href="@{/article/{id}(id=${issue.article.idArticle})}" th:text="${issue.article.title}"></a></li>
             </ul>
-            <span th:unless="${magazine.issues == null}"></span>
-            <p th:text="#{text.pages.magazine.noissues}"></p>
+            <span th:unless="${issue.articles == null}"></span>
+            <p th:text="#{text.pages.issue.noarticles}"></p>
+            <div class="card-footer">
+                <a th:href="@{/addarticle/{idIssue}(idIssue=${issue.idIssue})}" th:text="#{text.pages.issue.addbutton}"></a>
+            </div>
         </div>
     </div>
 </div>

@@ -21,6 +21,9 @@ public class Article {
     @Column(name = "title", nullable = false)
     private String title;
 
+    @Column(name = "order", unique = true, nullable = false)
+    private Integer order;
+
     @ManyToMany(mappedBy = "articles")
     private List<Author> authors = new ArrayList<Author>();
 
@@ -30,6 +33,8 @@ public class Article {
     @ManyToOne(targetEntity = Issue.class)
     @JoinColumn(name = "id_issue")
     private Issue issue;
+
+    //TODO into an article, persons, concepts or agents as named, try to create a class for that and link it with info at wikidata
 
     @CreationTimestamp
     @Column(name = "creation_date_time")
@@ -59,6 +64,14 @@ public class Article {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
     }
 
     public List<Tag> getTags() {
