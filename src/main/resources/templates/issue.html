@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
     <!-- Custom styles -->
-    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title th:utext="#{label.pages.issue.title}"></title>
 </head>
@@ -11,24 +11,35 @@
 <nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
 </nav>
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <div class="card-title">
-                <h2 class="card-text" th:utext="${editor.editorName}"></h2>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="" alt="">
             </div>
-            <span th:if="${editor.magazines != null}"></span>
-            <ul class="list-group" th:each="magazine : ${editor.magazines}">
-                <li class="list-group-item"><a th:href="@{/magazine/{id}(id=${magazine.idMagazine})}" th:utext="${magazine.magazineName}"></a></li>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${issue.title}"></h5>
+                    <p class="card-text"><a th:href="@{/magazine/{id}(id=${issue.magazine.idMagazine})}" th:text="${issue.magazine.magazineName}"></a></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        mb-3
+                    </ul>
+                </div>
+            </div>
+            <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
+            <span th:if="${magazine.issues != null}"></span>
+            <ul  class="list-group list-group-flush" th:each="issue : ${magazine.issues}">
+                <li class="list-group-item"><a th:href="@{/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
             </ul>
-            <span th:unless="${editor.magazines == null}"></span>
-            <p th:utext="#{text.pages.editor.nomagazines}"></p>
-        </div>
-        <div class="card-footer">
-            <a th:href="@{/addmagazine/{idEditor}(idEditor=${editor.idEditor})}" th:utext="#{text.pages.editor.addmagazine}"></a>
+            <span th:unless="${magazine.issues == null}"></span>
+            <p th:text="#{text.pages.magazine.noissues}"></p>
         </div>
     </div>
 </div>
-<footer class="footer"th:insert="~{footer :: footer}">
+<footer th:insert="~{footer :: footer}">
 </footer>
 </body>
 </html>

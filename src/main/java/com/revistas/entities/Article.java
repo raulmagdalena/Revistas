@@ -6,6 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,14 @@ public class Article {
     private String title;
 
     @ManyToMany(mappedBy = "articles")
-    private List<Author> authors;
+    private List<Author> authors = new ArrayList<Author>();
+
+    @ManyToMany(mappedBy = "tagArticles")
+    private List<Tag> tags = new ArrayList<Tag>();
+
+    @ManyToOne(targetEntity = Issue.class)
+    @JoinColumn(name = "id_issue")
+    private Issue issue;
 
     @CreationTimestamp
     @Column(name = "creation_date_time")
@@ -53,12 +61,28 @@ public class Article {
         this.title = title;
     }
 
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
     public List<Author> getAuthors() {
         return authors;
     }
 
     public void setAuthors(List<Author> authors) {
         this.authors = authors;
+    }
+
+    public Issue getIssue() {
+        return issue;
+    }
+
+    public void setIssue(Issue issue) {
+        this.issue = issue;
     }
 
     public Timestamp getCreateDateTime() {

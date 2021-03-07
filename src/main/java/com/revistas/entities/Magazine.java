@@ -35,6 +35,9 @@ public class Magazine {
     @ManyToMany(mappedBy = "categoryMagazines")
     private List<Category> categories = new ArrayList<Category>();
 
+    //TODO frequency property
+    //TODO language property
+
     @CreationTimestamp
     @Column(name = "create_date_time")
     private java.sql.Timestamp createDateTime;
@@ -43,7 +46,6 @@ public class Magazine {
     @Column(name = "update_date_time")
     private java.sql.Timestamp updateDateTime;
 
-    //TODO frequency property
 
     public Long getIdMagazine() {
         return idMagazine;

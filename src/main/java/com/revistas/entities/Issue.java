@@ -6,7 +6,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "issue")
@@ -19,6 +21,9 @@ public class Issue {
 
     @Column(name = "issue_number", unique = true, nullable = false)
     private String number;
+
+    @Column(name = "issue_title", unique = true, nullable = true)
+    private String title;
 
     @Column(name = "issue_pages", nullable = true)
     private Integer pages;
@@ -36,6 +41,9 @@ public class Issue {
     @ManyToOne(targetEntity = Magazine.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_magazine")
     private Magazine magazine;
+
+    @OneToMany(targetEntity = Article.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "issue")
+    private List<Article> articles = new ArrayList<Article>();
 
     @CreationTimestamp
     @Column(name = "create_date_time")
@@ -60,6 +68,14 @@ public class Issue {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getPages() {
@@ -100,6 +116,14 @@ public class Issue {
 
     public void setMagazine(Magazine magazine) {
         this.magazine = magazine;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
     }
 
     public Timestamp getCreateDateTime() {

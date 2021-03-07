@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CategoryRepository extends Repository<Category, Long> {
 
-    @Query(value = "SELECT `category_name` FROM `categories` WHERE `category_name`LIKE %:term%;", nativeQuery = true)
+    @Query(value = "SELECT `category_name` FROM `categories` WHERE `category_name`LIKE %:term%", nativeQuery = true)
     List<String> getCategories(String term);
 
     public List<Category> findAll();
