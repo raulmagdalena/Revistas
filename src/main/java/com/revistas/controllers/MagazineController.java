@@ -18,6 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+@RequestMapping("/magazines")
 public class MagazineController {
 
     @Autowired
@@ -32,7 +33,7 @@ public class MagazineController {
     }
 
     //Get all Magazines
-    @GetMapping("/magazines")
+    @GetMapping("/all")
     public String getAllMagazines(Model model){
         //TODO check if an empty list is returned and throw an error
         model.addAttribute("magazines", repository.findAll());

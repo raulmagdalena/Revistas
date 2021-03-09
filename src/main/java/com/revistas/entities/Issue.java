@@ -38,7 +38,7 @@ public class Issue {
     @Column(name = "issue_issn")
     private String issueIssn;
 
-    @ManyToOne(targetEntity = Magazine.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Magazine.class)
     @JoinColumn(name = "id_magazine")
     private Magazine magazine;
 

@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <!-- Custom styles -->
+    <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title th:utext="#{text.pages.registration.title}"></title>
+</head>
+<body>
+<nav th:insert="~{navigation :: navigation}">
+</nav>
+<div class="container">
+    <h2 th:text="#{text.pages.registration.pagetitle}"></h2>
+    <div class="py-5 center">
+        <form action="/" th:object="${user}" method="post" enctype="utf8">
+            <div class="form-group row">
+                <div class="mb-3">
+                    <label th:text="#{label.pages.registration.firstName}"></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="firstName" th:field="*{firstName}"/>
+                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="mb-3">
+                    <label th:text="#{label.pages.registration.lastName}"></label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="lastName" th:field="*{lastName}"/>
+                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="mb-3">
+                    <label th:text="#{label.pages.registration.email}"></label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="email" th:field="*{email}"/>
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="mb-3">
+                    <label th:text="#{label.pages.registration.password}"></label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" th:field="*{password}"/>
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="mb-3">
+                    <label th:text="#{label.pages.registration.confirmPassword}"></label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="confirmPassword" th:field="*{confirmPassword}"/>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" th:utext="#{label.pages.registration.submit}"></button>
+        </form>
+    </div>
+</div>
+<div th:insert="~{footer :: footer}"></div>
+</body>
+</html>

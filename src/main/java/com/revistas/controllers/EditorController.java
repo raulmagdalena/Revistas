@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-//@RequestMapping(value = "/editors")
+@RequestMapping(value = "/editors")
 public class EditorController {
 
     private EditorRepository repository;
@@ -24,7 +24,7 @@ public class EditorController {
     }
 
     //Get all editors
-    @GetMapping("/editors")
+    @GetMapping("/all")
     public String getAllEditors(Model model){
         //TODO check if an empty list is returned and throw an error
         model.addAttribute("editors", repository.findAll());

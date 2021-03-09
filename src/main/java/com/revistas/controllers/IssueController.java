@@ -32,10 +32,10 @@ public class IssueController {
     }
 
     //Get all issues
-    @GetMapping("/")
+    @GetMapping("/all")
     public String getAllIssues(Model model){
         model.addAttribute("issues", repository.findAll());
-        return "/issues";
+        return "/issues/issues";
     }
 
     //Create a new issue
@@ -44,14 +44,14 @@ public class IssueController {
         List<Magazine> listMagazines = magazineRepository.findAll();
         model.addAttribute("issue", new Issue());
         model.addAttribute("magazines", listMagazines);
-        return "addissue";
+        return "/issues/addissue";
     }
 
     //Save the issue
     @PostMapping("/saveissue")
     public String saveIssue(Issue issue){
         repository.save(issue);
-        return "redirect:/issue/" + issue.getIdIssue();
+        return "redirect:/issues/issue/" + issue.getIdIssue();
     }
 
     //Get one issue by id
@@ -59,7 +59,7 @@ public class IssueController {
     public String getIssueById(@PathVariable Long idIssue, Model model){
         try{
             model.addAttribute("issue",repository.findByIdIssue(idIssue));
-            return "issue";
+            return "/issues/issue";
         } catch (EmptyResultDataAccessException e){
             throw new IssueNotFoundException(idIssue);
         }

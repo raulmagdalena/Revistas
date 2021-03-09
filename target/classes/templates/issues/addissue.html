@@ -2,8 +2,8 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
     <!-- Custom styles -->
-    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
-    <title th:utext="#{label.pages.newissue.title}"></title>
+    <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
+    <title th:utext="#{text.pages.addissue.title}"></title>
 </head>
 <body>
 <nav th:insert="~{navigation :: navigation}">
@@ -54,9 +54,7 @@
                         <label th:utext="#{label.pages.newissue.magazine}"></label>
                         <div class="input-group">
                             <select th:field="*{magazine}" class="form-control" required>
-                                <th:block th:each="magazine : ${magazines}">
-                                    <option th:text="${magazine.magazineName}" th:value="${magazine.idMagazine}" />
-                                </th:block>
+                                <option th:each="mag : ${magazines}" th:text="${mag.magazineName}" th:value="${mag.idMagazine}"/>
                             </select>
                         </div>
                     </div>
