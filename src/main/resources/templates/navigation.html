@@ -4,22 +4,39 @@
 <div class="navbar navbar-default fixed-top bg-dark" th:fragment="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" th:utext="#{label.pages.index.title}">home</a>
+            <a class="navbar-brand" href="#" th:utext="#{label.pages.index.title}"></a>
         </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/editors">Editors</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbareditors" role="button" aria-expanded="false" data-bs-toggle="dropdown" th:text="#{label.pages.navigation.editors}"></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/editors/all" th:text="#{label.pages.navigation.alleditors}"></a></li>
+                        <li><a class="dropdown-item" href="/editors/neweditor" th:text="#{label.pages.navigation.addeditors}"></a></li>
+                        <li><a class="dropdown-item" href="/editors/searcheditor" th:text="#{label.pages.navigation.searcheditors}"></a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/magazines">Revistes</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarmagazines" role="button"  aria-expanded="false" data-bs-toggle="dropdown" th:text="#{label.pages.navigation.magazines}"></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/magazines/all" th:text="#{label.pages.navigation.allmagazines}"></a></li>
+                        <li><a class="dropdown-item" href="/magazines/newmagazine" th:text="#{label.pages.navigation.addmagazine}"></a></li>
+                        <li><a class="dropdown-item" href="/editors/searcheditor" th:text="#{label.pages.navigation.searchmagazines}"></a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/issues">Edicions</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarissues" role="button"  aria-expanded="false" data-bs-toggle="dropdown" th:text="#{label.pages.navigation.issues}"></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/issues/all" th:text="#{label.pages.navigation.allissues}"></a></li>
+                        <li><a class="dropdown-item" href="/issues/newmissue" th:text="#{label.pages.navigation.addissue}"></a></li>
+                        <li><a class="dropdown-item" href="/issues/searchissue" th:text="#{label.pages.navigation.searchissues}"></a></li>
+                    </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a th:href="@{/logout}" th:utext="#{label.pages.logout}"></a></li>
+                <li><a th:href="@{/logout}" th:utext="#{label.pages.navigation.logout}"></a></li>
             </ul>
+        </div>
     </div>
 </div>
 </body>

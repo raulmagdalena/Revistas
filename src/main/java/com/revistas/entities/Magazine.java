@@ -29,7 +29,7 @@ public class Magazine {
     @JoinColumn(name = "id_editor")
     private Editor editor;
 
-    @OneToMany(targetEntity = Issue.class, mappedBy = "magazine", cascade = CascadeType.MERGE)
+    @OneToMany(targetEntity = Issue.class, mappedBy = "magazine")
     private List<Issue> issues = new ArrayList<Issue>();
 
     @ManyToMany(mappedBy = "categoryMagazines")

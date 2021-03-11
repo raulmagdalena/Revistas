@@ -28,13 +28,13 @@ public class EditorController {
     public String getAllEditors(Model model){
         //TODO check if an empty list is returned and throw an error
         model.addAttribute("editors", repository.findAll());
-        return "editors";
+        return "/editors/editors";
     }
 
     //Show the form to add an editor
     @GetMapping("/neweditor")
     public String showNewEditorForm(Editor editor){
-        return "addeditor";
+        return "/editors/addeditor";
     }
 
     //Create a new editor
@@ -51,7 +51,7 @@ public class EditorController {
         //TODO comprovar si s'ha guardat el resultat
         repository.save(newEditor);
         model.addAttribute("id", newEditor.getIdEditor());
-        return "editor";
+        return "/editors/editor";
     }
 
     //Get an editor by id
@@ -59,7 +59,7 @@ public class EditorController {
     public String getEditorById(@PathVariable Long id, Model model){
         try{
             model.addAttribute("editor", repository.findById(id));
-            return "editor";
+            return "/editors/editor";
         }   catch (EmptyResultDataAccessException e){
                 throw new EditorNotFoundException(id);
         }
@@ -71,7 +71,7 @@ public class EditorController {
         try {
                Editor editor = repository.findById(id);
                model.addAttribute("editor", editor);
-               return "editeditor";
+               return "/editors/editeditor";
         } catch (EmptyResultDataAccessException e){
                throw new EditorNotFoundException(id);
         }
@@ -82,13 +82,13 @@ public class EditorController {
     public String updateEditor(@PathVariable("id") Long id, @Valid Editor editor, BindingResult result, Model model){
         if(result.hasErrors()){
             editor.setIdEditor(id);
-            return "editeditor";
+            return "/editors/editeditor";
         }
 
         Editor editorUpdate = repository.getOne(id);
         editorUpdate.setEditorName(editor.getEditorName());
         repository.save(editorUpdate);
-        return "redirect:/editor/" + editorUpdate.getIdEditor();
+        return "redirect:/editors/editor/" + editorUpdate.getIdEditor();
     }
 
     //Delete editor

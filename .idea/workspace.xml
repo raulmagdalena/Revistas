@@ -5,57 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f024af13-78b7-4a08-8b1d-56eeab8863a8" name="Default Changelist" comment="daily update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/ArticleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/TagController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/ArticleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/TagRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/validation/EmailValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/validation/ValidEmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/EditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/EditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/validation/EmailValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/validation/ValidEmail.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/articles/addarticle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/addeditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addmagazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/addmagazine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editeditor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editmagazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/editmagazine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/issue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/issues.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazines.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazines.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/EditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/EditorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues/issues.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/issues.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/addeditor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/addissue.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/addmagazine.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/editeditor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/editmagazine.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/editor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/editors.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/issue.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/issues.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/magazine.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/magazines.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
