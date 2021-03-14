@@ -16,11 +16,11 @@ $( function(){
         })
         .autocomplete({
         source: function(request, response){
-            $.getJSON("magazines/autocomplete",{
+            $.getJSON("/magazines/autocomplete",{
                 term: extractLast(request.term)
                 }, response);
             },
-        minLength: 2,
+        minLength: 3,
         focus: function(){
             return false;
         },

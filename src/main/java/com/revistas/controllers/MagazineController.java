@@ -37,7 +37,7 @@ public class MagazineController {
     public String getAllMagazines(Model model){
         //TODO check if an empty list is returned and throw an error
         model.addAttribute("magazines", repository.findAll());
-        return "magazines";
+        return "/magazines/magazines";
     }
 
     //Get one magazine by id
@@ -45,7 +45,7 @@ public class MagazineController {
     public String getMagazineById(@PathVariable Long idMagazine, Model model){
         try{
             model.addAttribute("magazine",repository.findByIdMagazine(idMagazine));
-            return "magazine";
+            return "/magazines/magazine";
         } catch (EmptyResultDataAccessException e){
             throw new MagazineNotFoundException(idMagazine);
         }
@@ -57,7 +57,7 @@ public class MagazineController {
         try{
             model.addAttribute("magazine", repository.findByIdMagazine(id));
             model.addAttribute("editors", editorRepository.findAll());
-            return "editmagazine";
+            return "/magazines/editmagazine";
         } catch (EmptyResultDataAccessException e){
             throw new MagazineNotFoundException(id);
         }
@@ -76,14 +76,14 @@ public class MagazineController {
             model.addAttribute("magazine", new Magazine());
             model.addAttribute("editor", editor);
         }
-        return "addmagazine";
+        return "/magazines/addmagazine";
     }
 
     //Save the magazine
     @PostMapping("/savemagazine")
     public String saveMagazine(Magazine magazine){
         repository.save(magazine);
-        return "redirect:/magazine/" + magazine.getIdMagazine();
+        return "redirect:/magazines/magazine/" + magazine.getIdMagazine();
     }
 
     //Update the magazine
@@ -91,17 +91,17 @@ public class MagazineController {
     public String updateMagazine(@PathVariable("id") Long id, @Valid Magazine magazine, BindingResult result, Model model){
         if(result.hasErrors()){
             magazine.setIdMagazine(id);
-            return "editmagazine";
+            return "/magazines/editmagazine";
         }
         Magazine magazineUpdate = repository.findByIdMagazine(id);
         magazineUpdate.setMagazineName(magazine.getMagazineName());
         magazineUpdate.setMagazineIssn(magazine.getMagazineIssn());
         repository.save(magazineUpdate);
-        return "redirect:/magazine/" + magazineUpdate.getIdMagazine();
+        return "redirect:/magazines/magazine/" + magazineUpdate.getIdMagazine();
     }
 
     //Get all the categories for the autocomplete
-    @RequestMapping(value = "magazines/autocomplete")
+    @RequestMapping(value = "/autocomplete")
     @ResponseBody
     public List<String> autoComplete(@RequestParam(value = "term", required = false, defaultValue = "") String term){
         List<String> categoriesList = categoryRepository.getCategories(term);

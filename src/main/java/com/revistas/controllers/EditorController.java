@@ -32,7 +32,7 @@ public class EditorController {
     }
 
     //Show the form to add an editor
-    @GetMapping("/neweditor")
+    @GetMapping("/new")
     public String showNewEditorForm(Editor editor){
         return "/editors/addeditor";
     }
@@ -51,7 +51,7 @@ public class EditorController {
         //TODO comprovar si s'ha guardat el resultat
         repository.save(newEditor);
         model.addAttribute("id", newEditor.getIdEditor());
-        return "/editors/editor";
+        return "redirect:/editors/editor/" + newEditor.getIdEditor();
     }
 
     //Get an editor by id

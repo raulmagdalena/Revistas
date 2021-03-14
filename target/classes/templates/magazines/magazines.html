@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Custom styles -->
-    <link href="/css/css/sticky-footer-navbar.css" rel="stylesheet">
-    <meta charset="UTF-8">
+    <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
     <title th:utext="#{label.pages.magazines.title}">Editors</title>
 </head>
 <body>
@@ -22,9 +24,9 @@
                     </thead>
                     <tbody>
                         <tr scope="row" th:each="magazine : ${magazines}">
-                            <td><a th:href="@{/magazine/{id}(id=${magazine.idMagazine})}" th:utext="${magazine.magazineName}"></a></td>
-                            <td><a th:href="@{/editmagazine/{id}(id=${magazine.idMagazine})}" th:utext="#{text.pages.magazines.editlink}"></a></td>
-                            <td><a th:href="@{/deletemagazine/{id}(id=${magazine.idMagazine})}" th:utext="#{text.pages.magazines.deletelink}"></a></td>
+                            <td><a th:href="@{/magazines/magazine/{id}(id=${magazine.idMagazine})}" th:utext="${magazine.magazineName}"></a></td>
+                            <td><a th:href="@{/magazines/editmagazine/{id}(id=${magazine.idMagazine})}" th:utext="#{text.pages.magazines.editlink}"></a></td>
+                            <td><a th:href="@{/magazines/deletemagazine/{id}(id=${magazine.idMagazine})}" th:utext="#{text.pages.magazines.deletelink}"></a></td>
                         </tr>
                     </tbody>
                 </table>

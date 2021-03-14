@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f024af13-78b7-4a08-8b1d-56eeab8863a8" name="Default Changelist" comment="daily update">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/head.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/EditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/EditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/validation/EmailValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/validation/ValidEmail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/searchcategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/searchcategories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors/addeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/addeditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors/editeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editeditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues/issues.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/issues.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazines.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazines.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/EditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/EditorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/searchcategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/searchcategories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/editors/addeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/editors/addeditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/editors/editeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/editors/editeditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/editors/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/editors/editor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/editors/editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/editors/editors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/navigation.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
