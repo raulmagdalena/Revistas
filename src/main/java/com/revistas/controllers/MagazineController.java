@@ -82,18 +82,27 @@ public class MagazineController {
     //Save the magazine
     @PostMapping("/savemagazine")
     public String saveMagazine(Magazine magazine){
+        if(magazine.getCategories() != null)
+        {
+            for(Category category : magazine.getCategories()){
+                if(categoryRepository.findByCategoryName(category.getCategoryName())){
+                    category.getMagazines().add(magazine);
+                    categoryRepository.save(category);
+                }
+            }
+        }
         repository.save(magazine);
         return "redirect:/magazines/magazine/" + magazine.getIdMagazine();
     }
 
     //Update the magazine
-    @PostMapping("/updatemagazine/{id}")
-    public String updateMagazine(@PathVariable("id") Long id, @Valid Magazine magazine, BindingResult result, Model model){
+    @PostMapping("/updatemagazine/{idMagazine}")
+    public String updateMagazine(@PathVariable(value = "idMagazine", required = true) Long idMagazine, @Valid Magazine magazine, BindingResult result){
         if(result.hasErrors()){
-            magazine.setIdMagazine(id);
+            magazine.setIdMagazine(idMagazine);
             return "/magazines/editmagazine";
         }
-        Magazine magazineUpdate = repository.findByIdMagazine(id);
+        Magazine magazineUpdate = repository.findByIdMagazine(idMagazine);
         magazineUpdate.setMagazineName(magazine.getMagazineName());
         magazineUpdate.setMagazineIssn(magazine.getMagazineIssn());
         repository.save(magazineUpdate);

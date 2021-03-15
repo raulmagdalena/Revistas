@@ -1,5 +1,6 @@
 package com.revistas.controllers;
 
+import com.revistas.entities.Category;
 import com.revistas.repositories.CategoryRepository;
 import com.revistas.repositories.MagazineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,9 @@ public class CategoryController {
     private MagazineRepository magazinesRepository;
 
     public CategoryController(CategoryRepository repository){this.repository = repository;}
+
+    public void addCategory(Category category){
+        repository.save(category);
+    }
 
 }

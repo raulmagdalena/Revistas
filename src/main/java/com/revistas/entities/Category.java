@@ -5,8 +5,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -23,7 +23,7 @@ public class Category {
 
     @ManyToMany
     @JoinTable(name = "category_magazine", joinColumns = @JoinColumn(name = "id_category"), inverseJoinColumns = @JoinColumn(name = "id_magazine"))
-    private List<Magazine> categoryMagazines = new ArrayList<Magazine>();
+    private Set<Magazine> magazines = new HashSet<>();
 
     @CreationTimestamp
     @Column(name = "creation_date_time")
@@ -34,6 +34,10 @@ public class Category {
     private java.sql.Timestamp updateDateTime;
 
     public Category() {
+    }
+
+    public Category(String name){
+        this.categoryName = name;
     }
 
     public Long getIdCategory() {
@@ -52,12 +56,12 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public List<Magazine> getCategoryMagazines() {
-        return categoryMagazines;
+    public Set<Magazine> getMagazines() {
+        return this.magazines;
     }
 
-    public void setCategoryMagazines(List<Magazine> categoryMagazines) {
-        this.categoryMagazines = categoryMagazines;
+    public void setMagazines(Set<Magazine> magazines) {
+        this.magazines = magazines;
     }
 
     public Timestamp getCreateDateTime() {

@@ -7,7 +7,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "magazine")
@@ -32,8 +34,8 @@ public class Magazine {
     @OneToMany(targetEntity = Issue.class, mappedBy = "magazine")
     private List<Issue> issues = new ArrayList<Issue>();
 
-    @ManyToMany(mappedBy = "categoryMagazines")
-    private List<Category> categories = new ArrayList<Category>();
+    @ManyToMany(mappedBy = "magazines")
+    private Set<Category> categories = new HashSet<Category>();
 
     //TODO frequency property
     //TODO language property
@@ -87,11 +89,11 @@ public class Magazine {
         this.issues = issues;
     }
 
-    public List<Category> getCategories() {
+    public Set<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Category> categories) {
+    public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
 

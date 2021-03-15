@@ -4,16 +4,16 @@ package com.revistas.controllers;
 import com.revistas.entities.Issue;
 import com.revistas.entities.Magazine;
 import com.revistas.exceptions.IssueNotFoundException;
+import com.revistas.exceptions.MagazineNoIdException;
+import com.revistas.exceptions.MagazineNotFoundException;
 import com.revistas.repositories.IssueRepository;
 import com.revistas.repositories.MagazineRepository;
+import com.revistas.repositories.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -26,6 +26,8 @@ public class IssueController {
     private IssueRepository repository;
     @Autowired
     private MagazineRepository magazineRepository;
+    @Autowired
+    private TagRepository tagRepository;
 
     public IssueController(IssueRepository repository){
         this.repository = repository;
@@ -39,12 +41,20 @@ public class IssueController {
     }
 
     //Create a new issue
-    @GetMapping("/new")
-    public String newIssueForm(Model model){
-        List<Magazine> listMagazines = magazineRepository.findAll();
-        model.addAttribute("issue", new Issue());
-        model.addAttribute("magazines", listMagazines);
-        return "/issues/addissue";
+    @GetMapping("/new/{idMagazine}")
+    public String newIssueForm(@PathVariable(required = true) Long idMagazine, Model model){
+        if(idMagazine != null) {
+            try {
+                Magazine magazine = magazineRepository.findByIdMagazine(idMagazine);
+                model.addAttribute("issue", new Issue());
+                model.addAttribute("magazine", magazine);
+                return "/issues/addissue";
+            } catch (EmptyResultDataAccessException e){
+                throw new MagazineNotFoundException(idMagazine);
+            }
+        }else{
+            throw new MagazineNoIdException();
+        }
     }
 
     //Save the issue
@@ -63,5 +73,13 @@ public class IssueController {
         } catch (EmptyResultDataAccessException e){
             throw new IssueNotFoundException(idIssue);
         }
+    }
+
+    //Get all the tags for the autocomplete
+    @RequestMapping(value = "/autocomplete")
+    @ResponseBody
+    public List<String> autoComplete(@RequestParam(value = "term", required = false, defaultValue = "") String term){
+        List<String> tagsList =tagRepository.getTags(term);
+        return tagsList;
     }
 }

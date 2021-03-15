@@ -27,9 +27,6 @@ public class Article {
     @ManyToMany(mappedBy = "articles")
     private List<Author> authors = new ArrayList<Author>();
 
-    @ManyToMany(mappedBy = "tagArticles")
-    private List<Tag> tags = new ArrayList<Tag>();
-
     @ManyToOne(targetEntity = Issue.class)
     @JoinColumn(name = "id_issue")
     private Issue issue;
@@ -72,14 +69,6 @@ public class Article {
 
     public void setOrder(Integer order) {
         this.order = order;
-    }
-
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
     }
 
     public List<Author> getAuthors() {

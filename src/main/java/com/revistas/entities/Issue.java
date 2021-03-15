@@ -42,8 +42,11 @@ public class Issue {
     @JoinColumn(name = "id_magazine")
     private Magazine magazine;
 
-    @OneToMany(targetEntity = Article.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "issue")
+    @OneToMany(targetEntity = Article.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "issue")
     private List<Article> articles = new ArrayList<Article>();
+
+    @ManyToMany(mappedBy = "issues", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private List<Tag> tags = new ArrayList<Tag>();
 
     @CreationTimestamp
     @Column(name = "create_date_time")
@@ -53,6 +56,11 @@ public class Issue {
     @Column(name = "update_date_time")
     private java.sql.Timestamp  updateDateTime;
 
+    public Issue(){}
+
+    public Issue(Long idIssue){
+        this.idIssue = idIssue;
+    }
 
     public Long getIdIssue() {
         return idIssue;
@@ -124,6 +132,15 @@ public class Issue {
 
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+
+    public void addTag(Tag tag){
+        tags.add(tag);
+        tag.getIssues().add(this);
+    }
+
+    public List<Tag> getTags() {
+        return tags;
     }
 
     public Timestamp getCreateDateTime() {

@@ -20,7 +20,7 @@ public class Author {
     private String authorName;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "rel_authors_articles", joinColumns = @JoinColumn(name = "fk_author", nullable = false), inverseJoinColumns = @JoinColumn(name = "fk_article", nullable = false))
+    @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "id_author", nullable = false), inverseJoinColumns = @JoinColumn(name = "id_article", nullable = false))
     private List<Article> articles;
 
     @CreationTimestamp

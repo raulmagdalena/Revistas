@@ -20,9 +20,9 @@ public class Tag {
     @Column(name = "tag_name")
     private String tagName;
 
-    @ManyToMany
-    @JoinTable(name = "tag_article", joinColumns = @JoinColumn(name = "id_tag"), inverseJoinColumns = @JoinColumn(name = "id_article"))
-    private List<Article> tagArticles = new ArrayList<Article>();
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "tag_issue", joinColumns = @JoinColumn(name = "id_tag"), inverseJoinColumns = @JoinColumn(name = "id_issue"))
+    private List<Issue> issues = new ArrayList<Issue>();
 
     @CreationTimestamp
     @Column(name = "creation_date_time")
@@ -31,6 +31,10 @@ public class Tag {
     @UpdateTimestamp
     @Column(name = "update_date_time")
     private java.sql.Timestamp updateDateTime;
+
+    public Tag(){}
+
+    public Tag(Long idTag){this.idTag = idTag;}
 
     public Long getIdTag() {
         return idTag;
@@ -48,12 +52,12 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public List<Article> getTagArticles() {
-        return tagArticles;
+    public List<Issue> getIssues() {
+        return issues;
     }
 
-    public void setTagArticles(List<Article> tagArticles) {
-        this.tagArticles = tagArticles;
+    public void setIssues(List<Issue> issues) {
+        this.issues = issues;
     }
 
     public Timestamp getCreateDateTime() {
