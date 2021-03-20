@@ -25,27 +25,29 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${magazine.magazineName}"></h5>
-                    <p class="card-text"><a th:href="@{/editors/editor/{id}(id=${magazine.editor.idEditor})}" th:text="${magazine.editor.editorName}"></a></p>
+                    <p class="card-subtitle text-muted"><a th:href="@{/editors/editor/{id}(id=${magazine.editor.idEditor})}" th:text="${magazine.editor.editorName}"></a></p>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${magazine.magazineIssn}"></h5>
+                    <span th:text="#{label.pages.magazine.issb}"></span><p class="card-text" th:text="${magazine.magazineIssn}"></p>
                     <label th:text="#{label.pages.magazine.editor}"></label><p class="card-text" th:text="${magazine.editor.editorName}"></p>
                     <label th:text="#{label.pages.magazine.categories}"></label>
                     <span th:each="cat : ${magazine.categories}"></span>
-                    <a th:unless="${#lists.isEmpty(magazine.categories)}" th:href="@{/categories/category/{idCategory}(idCategory=${cat.idCategory})}" th:text="${cat.categoryName}, "></a>
+                    <a th:unless="${#lists.isEmpty(magazine.categories)}" th:href="@{/categories/category/{idCategory}(idCategory=${cat.idCategory})}" th:text="${cat.categoryName}"></a>
                 </div>
-            </div>
-            <span th:if="${magazine.issues != null}"></span>
-                <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
+                <div class="card-body">
+                    <span th:if="${magazine.issues != null}"></span>
+                    <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
                     <ul  class="list-group list-group-flush" th:each="issue : ${magazine.issues}">
                         <li class="list-group-item"><a th:href="@{/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
                     </ul>
-            <span th:unless="${magazine.issues == null}"></span>
-                <p th:text="#{text.pages.magazine.noissues}"></p>
-            <div class="card-footer">
-                <a th:href="@{/issues/new/{idMagazine}(idMagazine=${magazine.idMagazine})}" th:text="#{text.pages.magazine.addissue}"></a>
+                    <span th:unless="${magazine.issues == null}"></span>
+                    <p th:text="#{text.pages.magazine.noissues}"></p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/issues/new/{idMagazine}(idMagazine=${magazine.idMagazine})}" th:text="#{text.pages.magazine.addissue}"></a>
+                </div>
             </div>
         </div>
     </div>

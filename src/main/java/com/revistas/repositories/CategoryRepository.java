@@ -11,7 +11,7 @@ public interface CategoryRepository extends Repository<Category, Long> {
     @Query(value = "SELECT `category_name` FROM `categories` WHERE `category_name`LIKE %:term%", nativeQuery = true)
     List<String> getCategories(String term);
 
-    public boolean findByCategoryName(String categoryName);
+    public Category findByCategoryName(String categoryName);
     public List<Category> findAll();
     public Category save(Category category);
 }

@@ -15,7 +15,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/magazines")
@@ -81,18 +83,29 @@ public class MagazineController {
 
     //Save the magazine
     @PostMapping("/savemagazine")
-    public String saveMagazine(Magazine magazine){
-        if(magazine.getCategories() != null)
-        {
-            for(Category category : magazine.getCategories()){
-                if(categoryRepository.findByCategoryName(category.getCategoryName())){
-                    category.getMagazines().add(magazine);
-                    categoryRepository.save(category);
+    public String saveMagazine(@ModelAttribute Magazine magazine, BindingResult result, @RequestParam("categories") String strCategories, Model model){
+        if(result.hasErrors()) {
+            Set<Category> categoriesSet = new HashSet<>();
+            for (String category : strCategories.split(",")) {
+                if (category.equals("") || category == null) {
+                    //don't do anything
+                } else {
+                    String trimCat;
+                    trimCat = category.trim();
+                    Category cat = categoryRepository.findByCategoryName(trimCat);
+                    if (cat == null) {
+                        cat = new Category();
+                        cat.setCategoryName(category);
+                        categoryRepository.save(cat);
+                    }
+                    categoriesSet.add(cat);
                 }
             }
+            magazine.setCategories(categoriesSet);
+            repository.save(magazine);
+            return "redirect:/magazines/magazine/" + magazine.getIdMagazine();
         }
-        repository.save(magazine);
-        return "redirect:/magazines/magazine/" + magazine.getIdMagazine();
+        return "redirect:/magazines/new";
     }
 
     //Update the magazine
