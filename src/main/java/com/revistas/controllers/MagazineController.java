@@ -95,7 +95,7 @@ public class MagazineController {
                     Category cat = categoryRepository.findByCategoryName(trimCat);
                     if (cat == null) {
                         cat = new Category();
-                        cat.setCategoryName(category);
+                        cat.setCategoryName(trimCat);
                         categoryRepository.save(cat);
                     }
                     categoriesSet.add(cat);

@@ -3,6 +3,7 @@ package com.revistas.controllers;
 
 import com.revistas.entities.Issue;
 import com.revistas.entities.Magazine;
+import com.revistas.entities.Tag;
 import com.revistas.exceptions.IssueNotFoundException;
 import com.revistas.exceptions.MagazineNoIdException;
 import com.revistas.exceptions.MagazineNotFoundException;
@@ -13,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/issues")
@@ -59,9 +60,27 @@ public class IssueController {
 
     //Save the issue
     @PostMapping("/saveissue")
-    public String saveIssue(Issue issue){
-        repository.save(issue);
-        return "redirect:/issues/issue/" + issue.getIdIssue();
+    public String saveIssue(@ModelAttribute Issue issue, BindingResult result, @RequestParam("tags") String strTags ){
+        if(result.hasErrors()){
+            for (String tag : strTags.split(",")){
+                if(tag.equals("") || tag == null){
+                    // don't do anything
+                } else {
+                    String trimTag;
+                    trimTag = tag.trim();
+                    Tag newtag = tagRepository.findByTagName(trimTag);
+                    if(newtag == null){
+                        newtag = new Tag();
+                        newtag.setTagName(trimTag);
+                        tagRepository.save(newtag);
+                    }
+                    issue.addTag(newtag);
+                }
+            }
+            repository.save(issue);
+            return "redirect:/issues/issue/" + issue.getIdIssue();
+        }
+        return "redirect:/issues/new";
     }
 
     //Get one issue by id

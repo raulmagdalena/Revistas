@@ -7,7 +7,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "articles")
@@ -21,11 +23,11 @@ public class Article {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "order", unique = true, nullable = false)
+    @Column(name = "article_order", unique = true, nullable = false)
     private Integer order;
 
     @ManyToMany(mappedBy = "articles")
-    private List<Author> authors = new ArrayList<Author>();
+    private Set<Author> authors = new HashSet<Author>();
 
     @ManyToOne(targetEntity = Issue.class)
     @JoinColumn(name = "id_issue")
@@ -41,8 +43,9 @@ public class Article {
     @Column(name = "update_date_time")
     private java.sql.Timestamp updateDateTime;
 
+    public Article(){}
 
-    public Article(String title, List<Author> authors) {
+    public Article(String title, Set<Author> authors) {
         this.title = title;
         this.authors = authors;
     }
@@ -71,12 +74,17 @@ public class Article {
         this.order = order;
     }
 
-    public List<Author> getAuthors() {
+    public Set<Author> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<Author> authors) {
+    public void setAuthors(Set<Author> authors) {
         this.authors = authors;
+    }
+
+    public void addAuthor(Author author){
+        authors.add(author);
+        author.getArticles().add(this);
     }
 
     public Issue getIssue() {

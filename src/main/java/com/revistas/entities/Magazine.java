@@ -89,6 +89,11 @@ public class Magazine {
         this.issues = issues;
     }
 
+    public void addCategory(Category category){
+        categories.add(category);
+        category.getMagazines().add(this);
+    }
+
     public Set<Category> getCategories() {
         return categories;
     }

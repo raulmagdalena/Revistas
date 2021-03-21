@@ -9,4 +9,5 @@ import java.util.List;
 public interface ArticleRepository extends Repository<Article, Long> {
 
     List<Article> findAll();
+    public Article save(Article article);
 }

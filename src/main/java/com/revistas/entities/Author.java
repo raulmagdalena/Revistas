@@ -33,6 +33,7 @@ public class Author {
 
     //TODO add fields for biography
 
+    public Author(){}
 
     public Author(String authorName, List<Article> articles) {
         this.authorName = authorName;

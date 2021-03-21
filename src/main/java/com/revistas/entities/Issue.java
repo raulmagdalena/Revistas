@@ -6,9 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "issue")
@@ -34,7 +32,7 @@ public class Issue {
     @Column(name = "issue_cover")
     private String cover;
 
-    @Pattern(regexp = "[\\S]{4}\\-[\\S]{4}\\-[\\s]{5}")
+    @Pattern(regexp = "[\\S]{4}\\-[\\S]{4}\\-[\\S]{5}")
     @Column(name = "issue_issn")
     private String issueIssn;
 
@@ -46,7 +44,7 @@ public class Issue {
     private List<Article> articles = new ArrayList<Article>();
 
     @ManyToMany(mappedBy = "issues", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private List<Tag> tags = new ArrayList<Tag>();
+    private Set<Tag> tags = new HashSet<Tag>();
 
     @CreationTimestamp
     @Column(name = "create_date_time")
@@ -139,8 +137,12 @@ public class Issue {
         tag.getIssues().add(this);
     }
 
-    public List<Tag> getTags() {
+    public Set<Tag> getTags() {
         return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 
     public Timestamp getCreateDateTime() {

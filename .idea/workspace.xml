@@ -5,12 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f024af13-78b7-4a08-8b1d-56eeab8863a8" name="Default Changelist" comment="daily update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/exceptions/IssueNoIdException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/AppErrorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/MagazineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/ArticleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/ArticleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/AuthorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/TagRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues/issue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/issue.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazines/addmagazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/addmagazine.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/AppErrorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/MagazineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/repositories/TagRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/repositories/TagRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/issues/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/issues/addissue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/issues/issue.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/issues/issue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/magazines/addmagazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/magazines/addmagazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/magazines/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/magazines/magazine.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +89,9 @@
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/magazines" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/editors" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.revistas.exceptions" />
     </key>
   </component>
   <component name="RunManager" selected="Application.RevistasApplication">

@@ -19,71 +19,50 @@
     <main>
         <h2 th:text="#{text.pages.addissue.pagetitle}"></h2>
         <div class="py-5 center">
-            <form action="#" method="post" th:object="${issue}" th:action="@{/issues/saveissue}">
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:utext="#{label.pages.newissue.issuenumber}"></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="number" th:field="*{number}"/>
-                            <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span>
-                        </div>
-                    </div>
+            <form  class="row g-3" action="#" method="post" th:object="${issue}" th:action="@{/issues/saveissue}">
+                <div class="col-md-12">
+                    <label th:text="#{label.pages.newissue.issuetitle}"></label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}"/>
+                    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
                 </div>
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:utext="#{label.pages.newissue.issuedate}"></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="issueDate" th:field="*{issueDate}"/>
-                            <span th:if="${#fields.hasErrors('issueDate')}" th:errors="*{issueDate}"></span>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <label th:utext="#{label.pages.newissue.issuenumber}"></label>
+                    <input type="text" class="form-control" id="number" th:field="*{number}"/>
+                    <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span>
                 </div>
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:utext="#{label.pages.newissue.issuepages}"></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="pages" th:field="*{pages}"/>
-                            <span th:if="${#fields.hasErrors('pages')}" th:errors="*{pages}"></span>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <label th:utext="#{label.pages.newissue.issuedate}"></label>
+                    <input type="text" class="form-control" id="issueDate" th:field="*{issueDate}"/>
+                    <span th:if="${#fields.hasErrors('issueDate')}" th:errors="*{issueDate}"></span>
                 </div>
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:utext="#{label.pages.newissue.issueissn}"></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="issueIssn" th:field="*{issueIssn}"/>
-                            <span th:if="${#fields.hasErrors('issueIssn')}" th:errors="*{issueIssn}"></span>
-                        </div>
-                    </div>
+                <div class="col-md-3">
+                    <label th:utext="#{label.pages.newissue.issuepages}"></label>
+                    <input type="text" class="form-control" id="pages" th:field="*{pages}"/>
+                    <span th:if="${#fields.hasErrors('pages')}" th:errors="*{pages}"></span>
                 </div>
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:utext="#{label.pages.newissue.magazine}"></label>
-                        <div class="input-group">
-                            <select th:field="*{magazine}" class="form-control" required>
-                                <option th:each="mag : ${magazine}" th:text="${mag.magazineName}" th:value="${mag.idMagazine}"/>
-                            </select>
-                        </div>
-                    </div>
+                <div class="col-md-3">
+                    <label th:utext="#{label.pages.newissue.issueissn}"></label>
+                    <input type="text" class="form-control" id="issueIssn" th:field="*{issueIssn}"/>
+                    <span th:if="${#fields.hasErrors('issueIssn')}" th:errors="*{issueIssn}"></span>
                 </div>
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:text="#{label.pages.newissue.tags}"></label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="tags" th:field="*{tags}">
-                        </div>
-                    </div>
+                  <div class="col-md-3">
+                      <label th:utext="#{label.pages.newissue.magazine}"></label>
+                      <select th:field="*{magazine}" class="form-control" required>
+                      <option th:each="mag : ${magazine}" th:text="${mag.magazineName}" th:value="${mag.idMagazine}"/>
+                      </select>
                 </div>
-                <div class="form-group row">
-                    <div class="mb-3">
-                        <label th:utext="#{label.pages.newissue.cover}"></label>
-                        <div class="input-group">
-                            <input type="file" class="form-control" id="cover" th:field="*{cover}">
-                            <span th:if="${#fields.hasErrors('cover')}" th:errors="*{cover}">  </span>
-                        </div>
-                    </div>
+                <div class="col-md-3">
+                      <label th:text="#{label.pages.newissue.tags}"></label>
+                      <input type="text" class="form-control" id="strTags" th:field="*{tags}">
                 </div>
-                <button class="btn btn-primary" type="submit" th:utext="#{label.pages.newissue.submit}"></button>
+                <div class="col-md-3">
+                      <label th:utext="#{label.pages.newissue.cover}"></label>
+                      <input type="file" class="form-control" id="cover" th:field="*{cover}">
+                      <span th:if="${#fields.hasErrors('cover')}" th:errors="*{cover}">  </span>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" th:utext="#{label.pages.newissue.submit}"></button>
+                </div>
             </form>
         </div>
     </main>
