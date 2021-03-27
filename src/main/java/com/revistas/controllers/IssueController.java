@@ -1,6 +1,7 @@
 package com.revistas.controllers;
 
 
+import com.revistas.entities.Article;
 import com.revistas.entities.Issue;
 import com.revistas.entities.Magazine;
 import com.revistas.entities.Tag;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -100,5 +103,20 @@ public class IssueController {
     public List<String> autoComplete(@RequestParam(value = "term", required = false, defaultValue = "") String term){
         List<String> tagsList =tagRepository.getTags(term);
         return tagsList;
+    }
+
+    //Add dinamically an article
+    @RequestMapping(value = "addarticle", params = {"addArticle"})
+    public String addArticle(Issue issue, BindingResult result){
+        issue.getArticles().add(new Article());
+        return "/issues/new";
+    }
+
+    //Dinamically remove an article
+    @RequestMapping(value = "removearticle", params = {"removeArticle"})
+    public String removeArticle(Issue issue, BindingResult result, HttpServletRequest req){
+        Integer rowId = Integer.valueOf(req.getParameter("removeArticle"));
+        issue.getArticles().remove(rowId.intValue());
+        return "/issues/new";
     }
 }
