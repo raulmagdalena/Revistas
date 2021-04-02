@@ -46,7 +46,7 @@ public class MagazineController {
     @GetMapping(value = "/magazine/{idMagazine}")
     public String getMagazineById(@PathVariable Long idMagazine, Model model){
         try{
-            model.addAttribute("magazine",repository.findByIdMagazine(idMagazine));
+             model.addAttribute("magazine",repository.findByIdMagazine(idMagazine));
             return "/magazines/magazine";
         } catch (EmptyResultDataAccessException e){
             throw new MagazineNotFoundException(idMagazine);

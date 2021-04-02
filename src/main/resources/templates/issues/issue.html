@@ -36,12 +36,12 @@
             <div class="card-body col-md-12" th:text="#{text.pages.issue.articles}"></div>
             <span th:if="${issue.articles != null}"></span>
             <ul class="list-group list-group-flush" th:each="article : ${issue.articles}">
-                <li class="list-group-item"><a th:href="@{/articles/article/{id}(id=${issue.article.idArticle})}" th:text="${issue.article.title}"></a></li>
+                <li class="list-group-item"><a th:href="@{/articles/article/{id}(id=${article.idArticle})}" th:text="${article.title}"></a></li>
             </ul>
             <span th:unless="${issue.articles == null}"></span>
             <p th:text="#{text.pages.issue.noarticles}"></p>
             <div class="card-footer col-md-12">
-                <a th:href="@{/articles/addarticle/{idIssue}(idIssue=${issue.idIssue})}" th:text="#{text.pages.issue.addbutton}"></a>
+                <a th:href="@{/articles/new/{idIssue}(idIssue=${issue.idIssue})}" th:text="#{text.pages.issue.addbutton}"></a>
             </div>
         </div>
     </div>

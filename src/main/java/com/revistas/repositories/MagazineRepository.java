@@ -12,4 +12,5 @@ public interface MagazineRepository extends Repository<Magazine, Long> {
     public Magazine save(Magazine magazine);
     public String findByMagazineName(String magazineName);
     public Magazine findByIdMagazine(Long idMagazine);
+    public Long count();
 }

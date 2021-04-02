@@ -6,9 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,7 +24,7 @@ public class Article {
     @Column(name = "article_order", unique = true, nullable = false)
     private Integer order;
 
-    @ManyToMany(mappedBy = "articles")
+    @ManyToMany(mappedBy = "articles",cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Author> authors = new HashSet<Author>();
 
     @ManyToOne(targetEntity = Issue.class)

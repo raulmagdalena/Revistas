@@ -160,5 +160,9 @@ public class Issue {
     public void setUpdateDateTime(java.sql.Timestamp  updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
+
+    public Long countArticles() {
+        return articles.stream().count();
+    }
 }
 

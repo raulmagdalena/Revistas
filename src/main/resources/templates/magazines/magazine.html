@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -33,14 +33,15 @@
                     <span th:text="#{label.pages.magazine.issb}"></span><p class="card-text" th:text="${magazine.magazineIssn}"></p>
                     <label th:text="#{label.pages.magazine.editor}"></label><p class="card-text" th:text="${magazine.editor.editorName}"></p>
                     <label th:text="#{label.pages.magazine.categories}"></label>
-                    <span th:each="cat : ${magazine.categories}"></span>
-                    <a th:unless="${#lists.isEmpty(magazine.categories)}" th:href="@{/categories/category/{idCategory}(idCategory=${cat.idCategory})}" th:text="${cat.categoryName}"></a>
+                    <span th:each="category : ${magazine.categories}"></span>
+                        <span th:if="${magazine.categories != null}"></span>
+                            <a th:href="@{/categories/category/{idCategory}(idCategory=${category.idCategory})}" th:text="${category.categoryName}"></a>
                 </div>
                 <div class="card-body">
                     <span th:if="${magazine.issues != null}"></span>
                     <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
                     <ul  class="list-group list-group-flush" th:each="issue : ${magazine.issues}">
-                        <li class="list-group-item"><a th:href="@{/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
+                        <li class="list-group-item"><a th:href="@{/issues/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
                     </ul>
                     <span th:unless="${magazine.issues == null}"></span>
                     <p th:text="#{text.pages.magazine.noissues}"></p>

@@ -47,7 +47,7 @@ public class ArticleController {
                 Issue issue = issueRepository.findByIdIssue(idIssue);
                 model.addAttribute("article", new Article());
                 model.addAttribute("issue", issue);
-                return "issues/addissue";
+                return "articles/addarticle";
             } catch (EmptyResultDataAccessException e) {
                 throw new IssueNotFoundException(idIssue);
             }
@@ -74,7 +74,7 @@ public class ArticleController {
                 }
             }
             repository.save(article);
-            return "redirect:/articles/article" + article.getIdArticle();
+            return "redirect:/issues/issue/" + article.getIssue().getIdIssue();
         }
         return "redirect:/articles/new";
     }
