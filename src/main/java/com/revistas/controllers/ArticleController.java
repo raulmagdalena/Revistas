@@ -57,9 +57,11 @@ public class ArticleController {
     }
 
     //Save the article
-    @PostMapping("/savearticle")
-    public String saveArticle(@ModelAttribute Article article, BindingResult result, @RequestParam("authors") String strAuthors){
+    @PostMapping(value = "/savearticle")
+    public String saveArticle(@ModelAttribute Article article, BindingResult result, @RequestParam("authors") String strAuthors,
+                              @RequestParam("idIssue") Long idIssue){
         if(result.hasErrors()){
+            //Long id = Long.parseLong(idIssue);
             for (String author : strAuthors.split(",")){
                 if(author != ""){
                     String trimAuthor;
@@ -71,11 +73,23 @@ public class ArticleController {
                         authorRepository.save(newAuthor);
                     }
                     article.addAuthor(newAuthor);
+                    article.setIssue(issueRepository.findByIdIssue(idIssue));
                 }
             }
             repository.save(article);
-            return "redirect:/issues/issue/" + article.getIssue().getIdIssue();
+            return "redirect:/issues/issue/" + idIssue;
         }
         return "redirect:/articles/new";
+    }
+
+    //Show article by id
+    @GetMapping(value = "/article/{idArticle}")
+    public String getArticleById(@PathVariable Long idArticle, Model model){
+        try {
+            model.addAttribute("article", repository.findById(idArticle));
+            return "/articles/article";
+        } catch (EmptyResultDataAccessException e){
+            throw new IssueNotFoundException(idArticle);
+        }
     }
 }

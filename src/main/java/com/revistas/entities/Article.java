@@ -85,7 +85,7 @@ public class Article {
         author.getArticles().add(this);
     }
 
-    public Issue getIssue() {
+    public Issue getIssue(Long idIssue) {
         return issue;
     }
 

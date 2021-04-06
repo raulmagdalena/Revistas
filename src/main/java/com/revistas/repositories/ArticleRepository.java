@@ -10,4 +10,5 @@ public interface ArticleRepository extends Repository<Article, Long> {
 
     List<Article> findAll();
     public Article save(Article article);
+    public Article findById(Long idArticle);
 }

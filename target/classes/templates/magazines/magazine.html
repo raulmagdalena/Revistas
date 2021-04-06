@@ -33,9 +33,7 @@
                     <span th:text="#{label.pages.magazine.issb}"></span><p class="card-text" th:text="${magazine.magazineIssn}"></p>
                     <label th:text="#{label.pages.magazine.editor}"></label><p class="card-text" th:text="${magazine.editor.editorName}"></p>
                     <label th:text="#{label.pages.magazine.categories}"></label>
-                    <span th:each="category : ${magazine.categories}"></span>
-                        <span th:if="${magazine.categories != null}"></span>
-                            <a th:href="@{/categories/category/{idCategory}(idCategory=${category.idCategory})}" th:text="${category.categoryName}"></a>
+                    <a th:each="category : ${magazine.categories}" th:href="@{/categories/category/{idCategory}(idCategory=${category.idCategory})}" th:text="${category.categoryName}">, </a>
                 </div>
                 <div class="card-body">
                     <span th:if="${magazine.issues != null}"></span>

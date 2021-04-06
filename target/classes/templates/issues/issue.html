@@ -34,12 +34,22 @@
                 </div>
             </div>
             <div class="card-body col-md-12" th:text="#{text.pages.issue.articles}"></div>
-            <span th:if="${issue.articles != null}"></span>
-            <ul class="list-group list-group-flush" th:each="article : ${issue.articles}">
-                <li class="list-group-item"><a th:href="@{/articles/article/{id}(id=${article.idArticle})}" th:text="${article.title}"></a></li>
-            </ul>
-            <span th:unless="${issue.articles == null}"></span>
-            <p th:text="#{text.pages.issue.noarticles}"></p>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th scope="col" th:text="#{text.pages.issue.tableorder}"></th>
+                        <th scope="col" th:text="#{text.pages.issue.tabletitle}"></th>
+                        <th scope="col" th:text="#{text.pages.issue.tableauthor}"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="article : ${issue.articles}">
+                        <th scope="row" th:text="${article.order}"></th>
+                        <td scope="row"><a th:href="@{/articles/article/{idArticle}(idArticle=${article.idArticle})}" th:text="${article.title}"></a></td>
+                        <td scope="row"><a th:each="author : ${article.authors}" th:href="@{/authors/author/{idAuthor}(idAuthor=${author.idAuthor})}" th:text="${author.authorName}"></a></td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="card-footer col-md-12">
                 <a th:href="@{/articles/new/{idIssue}(idIssue=${issue.idIssue})}" th:text="#{text.pages.issue.addbutton}"></a>
             </div>
