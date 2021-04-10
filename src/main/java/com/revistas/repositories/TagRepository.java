@@ -15,4 +15,5 @@ public interface TagRepository extends Repository<Tag, Long> {
     public Set<Tag> findAll();
     public Tag findByTagName(String tagName);
     public Tag save(Tag tag);
+    public Long count();
 }

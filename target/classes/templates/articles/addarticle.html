@@ -16,7 +16,7 @@
 <div class="container">
     <main>
         <h2 th:text="#{text.pages.addarticle.title}"></h2>
-        <h2><a th:href="@{/issues/issue/{idIssue}(idIssue=${issue.idIssue})}" th:text="${issue.title}"></a> <span class="badge bg-secondary" th:text="${issue.countArticles}"></span></h2>
+        <h2><a th:href="@{/issues/issue/{idIssue}(idIssue=${issue.idIssue})}" th:text="${issue.title}"></a><span class="badge bg-secondary" th:text="${issue.countArticles}"></span></h2>
         <div class="card" style="width: 50rem;">
             <table class="table table-stripped">
                 <thead>

@@ -4,14 +4,14 @@
 <nav class="navbar navbar-default fixed-top bg-dark" th:fragment="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/" th:utext="#{label.pages.index.title}"></a>
+            <a class="navbar-brand" th:href="@{/}" th:text="#{label.pages.index.title}"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbareditors" role="button" aria-expanded="false" data-bs-toggle="dropdown" th:text="#{label.pages.navigation.editors}"></a>
+                    <a class="nav-link dropdown-toggle" th:href="@{#}" id="navbareditors" role="button" aria-expanded="false" data-bs-toggle="dropdown" th:text="#{label.pages.navigation.editors}"></a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/editors/all" th:text="#{label.pages.navigation.alleditors}"></a></li>
+                        <li><a class="dropdown-item" th:href="@{/editors/all}" th:text="#{label.pages.navigation.alleditors}"></a></li>
                         <li><a class="dropdown-item" href="/editors/new" th:text="#{label.pages.navigation.addeditors}"></a></li>
                         <li><a class="dropdown-item" href="/editors/searcheditor" th:text="#{label.pages.navigation.searcheditors}"></a></li>
                     </ul>

@@ -25,10 +25,16 @@ public class IndexController {
     @Autowired
     private TagRepository tagRepository;
 
-    @RequestMapping("/")
+    @RequestMapping(value = {"/", "/index", "/home"})
     public String index(Model model){
-        Long magazinesCount = magazineRepository.count();
-        model.addAttribute("magazinesCount", magazinesCount);
+        model.addAttribute("magazinesCount", magazineRepository.count());
+        model.addAttribute("editorsCount", editorRepository.count());
+        model.addAttribute("issuesCount", issueRepository.count());
+        model.addAttribute("editorsCount", editorRepository.count());
+        model.addAttribute("articlesCount", articleRepository.count());
+        model.addAttribute("authorsCount", authorRepository.count());
+        model.addAttribute("categoriesCount", categoryRepository.count());
+        model.addAttribute("tagsCount", tagRepository.count());
         return "index.html";
 
     }

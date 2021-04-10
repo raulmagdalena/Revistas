@@ -13,6 +13,7 @@ public interface EditorRepository extends Repository<Editor, Long> {
     public Editor findById(Long id);
     public Long deleteById(Long id);
     public Editor getOne(long id);
+    public Long count();
     //public Editor findOne(Long id);
 }
 

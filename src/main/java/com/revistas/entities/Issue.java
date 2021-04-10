@@ -29,9 +29,6 @@ public class Issue {
     @Column(name = "issue_date", nullable = true)
     private Date issueDate;
 
-    @Column(name = "issue_cover")
-    private String cover;
-
     @Pattern(regexp = "[\\S]{4}\\-[\\S]{4}\\-[\\S]{5}")
     @Column(name = "issue_issn")
     private String issueIssn;
@@ -100,13 +97,6 @@ public class Issue {
         this.issueDate = issueDate;
     }
 
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
 
     public String getIssueIssn() {
         return issueIssn;
@@ -164,5 +154,6 @@ public class Issue {
     public Long countArticles() {
         return articles.stream().count();
     }
+
 }
 

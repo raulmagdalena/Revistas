@@ -14,5 +14,6 @@ public interface CategoryRepository extends Repository<Category, Long> {
     public Category findByCategoryName(String categoryName);
     public List<Category> findAll();
     public Category save(Category category);
+    public Long count();
 }
 

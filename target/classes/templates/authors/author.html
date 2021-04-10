@@ -26,8 +26,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="article, iterStat : ${author.articles}">
-                    <th scope="row" th:text="${iterStat}"></th>
+                <tr th:each="article, iterStat : ${author.articles}" th:if="${article}">
+                    <th scope="row" th:text="${iterStat.index + 1}"></th>
                     <td th:text="{article.title}"></td>
                     <td th:text="{article.authors}"></td>
                     <td th:text="{article.issue.issueDate}"></td>

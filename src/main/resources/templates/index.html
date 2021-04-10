@@ -7,22 +7,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Custom styles -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
-    <title th:utext="#{label.pages.index.title}"></title>
+    <title th:text="#{label.pages.index.title}"></title>
 </head>
 <body>
 <nav th:insert="~{navigation :: navigation}">
 
 </nav>
 <div class="container">
-    <h1 th:utext="#{label.pages.index.message}"></h1>
+    <h1 th:text="#{label.pages.index.message}"></h1>
     <ul class="list-group">
-        <li class="list-group-item" th:text="#{text.pages.index.editors}"></li>
-        <li class="list-group-item" th:href="@{/magazines/magazines{count}(count=${magazinesCount})}" th:text="#{text.pages.index.magazines}"></li>
-        <li class="list-group-item" th:text="#{text.pages.index.issues}"></li>
-        <li class="list-group-item" th:text="#{text.pages.index.articles}"></li>
-        <li class="list-group-item" th:text="#{text.pages.index.authors}"></li>
-        <li class="list-group-item" th:text="#{text.pages.index.categories}"></li>
-        <li class="list-group-item" th:text="#{text.pages.index.tags}"></li>
+        <li class="list-group-item"><a th:href="@{/editors/all}" th:text="#{text.pages.index.editors}"></a><span class="badge bg-secondary" th:text="${editorsCount}"></span></li>
+        <li class="list-group-item justify-content-between align-items-start"><a th:href="@{/magazines/all}" th:text="#{text.pages.index.magazines}"></a><span class="badge bg-secondary" th:text="${magazinesCount}"></span></li>
+        <li class="list-group-item"><a th:href="@{/issues/all}" th:text="#{text.pages.index.issues}"></a><span class="badge bg-secondary" th:text="${issuesCount}"></span></li>
+        <li class="list-group-item"><a th:href="@{/articles/all}" th:text="#{text.pages.index.articles}"></a><span class="badge bg-secondary" th:text="${articlesCount}"></span></li>
+        <li class="list-group-item"><a th:href="@{/authors/all}" th:text="#{text.pages.index.authors}"></a><span class="badge bg-secondary" th:text="${authorsCount}"></span></li>
+        <li class="list-group-item"><a th:href="@{/categories/all}" th:text="#{text.pages.index.categories}"></a><span class="badge bg-secondary" th:text="${categoriesCount}"></span></li>
+        <li class="list-group-item"><a th:href="@{/tags/all}" th:text="#{text.pages.index.tags}"></a><span class="badge bg-secondary" th:text="${tagsCount}"></span></li>
     </ul>
 </div>
 
