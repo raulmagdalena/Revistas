@@ -5,6 +5,7 @@ import com.revistas.exceptions.EditorNameAlreadyExists;
 import com.revistas.exceptions.EditorNoName;
 import com.revistas.exceptions.EditorNotFoundException;
 import com.revistas.repositories.EditorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/editors")
 public class EditorController {
 
+    @Autowired
     private EditorRepository repository;
 
     public EditorController(EditorRepository repository){

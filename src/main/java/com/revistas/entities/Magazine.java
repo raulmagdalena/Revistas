@@ -37,6 +37,9 @@ public class Magazine {
     @ManyToMany(mappedBy = "magazines")
     private Set<Category> categories = new HashSet<Category>();
 
+    @OneToOne(mappedBy = "collection")
+    private Collection collection;
+
     //TODO frequency property
     //TODO language property
 
@@ -116,5 +119,13 @@ public class Magazine {
 
     public void setUpdateDateTime(java.sql.Timestamp  updateDateTime) {
         this.updateDateTime = updateDateTime;
+    }
+
+    public Collection getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Collection collection) {
+        this.collection = collection;
     }
 }

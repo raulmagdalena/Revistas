@@ -37,11 +37,19 @@ public class Issue {
     @JoinColumn(name = "id_magazine")
     private Magazine magazine;
 
+    @ManyToOne(targetEntity = Collection.class)
+    @JoinColumn(name = "id_collection")
+    private Collection collection;
+
     @OneToMany(targetEntity = Article.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "issue")
     private List<Article> articles = new ArrayList<Article>();
 
     @ManyToMany(mappedBy = "issues", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Tag> tags = new HashSet<Tag>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cover", referencedColumnName = "id_issue")
+    private Cover cover;
 
     @CreationTimestamp
     @Column(name = "create_date_time")
@@ -155,5 +163,20 @@ public class Issue {
         return articles.stream().count();
     }
 
+    public Collection getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Collection collection) {
+        this.collection = collection;
+    }
+
+    public Cover getCover() {
+        return cover;
+    }
+
+    public void setCover(Cover cover) {
+        this.cover = cover;
+    }
 }
 

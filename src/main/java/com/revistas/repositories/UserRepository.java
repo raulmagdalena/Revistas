@@ -5,5 +5,7 @@ import org.springframework.data.repository.Repository;
 
 public interface UserRepository extends Repository<User, Long> {
 
-    public boolean findByEmail(String email);
+    public User save(User user);
+    public User findByEmail(String email);
+    public Long count();
 }

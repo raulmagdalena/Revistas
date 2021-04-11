@@ -14,7 +14,7 @@
 <div class="container">
     <h2 th:text="#{text.pages.registration.pagetitle}"></h2>
     <div class="py-5 center">
-        <form action="/" th:object="${user}" method="post" enctype="utf8">
+        <form action="#" th:object="${user}" method="post" th:action="@{/users/registration}">
             <div class="form-group row">
                 <div class="mb-3">
                     <label th:text="#{label.pages.registration.firstName}"></label>
@@ -55,7 +55,7 @@
                 <div class="mb-3">
                     <label th:text="#{label.pages.registration.confirmPassword}"></label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="confirmPassword" th:field="*{confirmPassword}"/>
+                        <input type="password" class="form-control" id="matchingPassword" th:field="*{matchingPassword}"/>
                     </div>
                 </div>
             </div>

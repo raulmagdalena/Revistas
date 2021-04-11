@@ -12,13 +12,17 @@ public class UserController {
 
     private UserRepository repository;
 
+    public UserController(UserRepository repository){
+        this.repository = repository;
+    }
+
     public User registerNewUserAccount(User user) throws UserAlreadyExistsException{
         if (emailExists(user.getEmail())) {
            throw new UserAlreadyExistsException("There is an account with that email address: " + user.getEmail());
         }
-    return user;
+        return repository.save(user);
     }
     private boolean emailExists(String email){
-        return repository.findByEmail(email);
+        return repository.findByEmail(email) != null;
     }
 }

@@ -24,6 +24,8 @@ public class IndexController {
     private CategoryRepository categoryRepository;
     @Autowired
     private TagRepository tagRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping(value = {"/", "/index", "/home"})
     public String index(Model model){
@@ -35,6 +37,7 @@ public class IndexController {
         model.addAttribute("authorsCount", authorRepository.count());
         model.addAttribute("categoriesCount", categoryRepository.count());
         model.addAttribute("tagsCount", tagRepository.count());
+        model.addAttribute("usersCount", userRepository.count());
         return "index.html";
 
     }

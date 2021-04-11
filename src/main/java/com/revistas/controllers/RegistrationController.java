@@ -19,6 +19,10 @@ public class RegistrationController {
 
     UserController userController;
 
+    public RegistrationController(UserController userController){
+        this.userController = userController;
+    }
+
     @GetMapping("/users/registration")
     public String showRegistrationForm(WebRequest request, Model model){
         User user = new User();
@@ -27,7 +31,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/users/registration")
-    public ModelAndView registerUserAccount(@ModelAttribute("user") @Valid User user, HttpServletRequest request, Errors errors){
+    public ModelAndView registerUserAccount(@ModelAttribute("user") User user, HttpServletRequest request, Errors errors){
         try {
             User registered = userController.registerNewUserAccount(user);
         } catch (UserAlreadyExistsException uaeEx){

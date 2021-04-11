@@ -1,15 +1,20 @@
 package com.revistas.entities;
 
 import com.revistas.validation.PasswordMatches;
-import com.revistas.validation.ValidEmail;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+
+import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
 @PasswordMatches
-@ValidEmail
 public class User {
 
     @Id
@@ -23,13 +28,28 @@ public class User {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @ValidEmail
+    @Email
     @NotEmpty
     @Column(name = "email", nullable = false)
     private String email;
 
+    @NotEmpty
     @Column(name = "password")
     private String password;
+
+    @NotEmpty
+    private String matchingPassword;
+
+    @OneToMany(targetEntity = Collection.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "user")
+    private Set<Collection> collections = new HashSet<Collection>();
+
+    @CreationTimestamp
+    @Column(name = "create_date_time")
+    private java.sql.Timestamp  createDateTime;
+
+    @UpdateTimestamp
+    @Column(name = "update_date_time")
+    private java.sql.Timestamp  updateDateTime;
 
     public Long getIdUser() {
         return idUser;
@@ -69,5 +89,37 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMatchingPassword() {
+        return matchingPassword;
+    }
+
+    public void setMatchingPassword(String matchingPassword) {
+        this.matchingPassword = matchingPassword;
+    }
+
+    public Set<Collection> getCollections() {
+        return collections;
+    }
+
+    public void setCollections(Set<Collection> collections) {
+        this.collections = collections;
+    }
+
+    public Timestamp getCreateDateTime() {
+        return createDateTime;
+    }
+
+    public void setCreateDateTime(Timestamp createDateTime) {
+        this.createDateTime = createDateTime;
+    }
+
+    public Timestamp getUpdateDateTime() {
+        return updateDateTime;
+    }
+
+    public void setUpdateDateTime(Timestamp updateDateTime) {
+        this.updateDateTime = updateDateTime;
     }
 }

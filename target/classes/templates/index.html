@@ -16,6 +16,7 @@
 <div class="container">
     <h1 th:text="#{label.pages.index.message}"></h1>
     <ul class="list-group">
+        <li class="list-group-item"><a th:href="@{/users/all}" th:text="#{text.pages.index.users}"></a><span class="badge bg-secondary" th:text="${usersCount}"></span></li>
         <li class="list-group-item"><a th:href="@{/editors/all}" th:text="#{text.pages.index.editors}"></a><span class="badge bg-secondary" th:text="${editorsCount}"></span></li>
         <li class="list-group-item justify-content-between align-items-start"><a th:href="@{/magazines/all}" th:text="#{text.pages.index.magazines}"></a><span class="badge bg-secondary" th:text="${magazinesCount}"></span></li>
         <li class="list-group-item"><a th:href="@{/issues/all}" th:text="#{text.pages.index.issues}"></a><span class="badge bg-secondary" th:text="${issuesCount}"></span></li>
