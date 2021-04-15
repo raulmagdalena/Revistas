@@ -7,18 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.Valid;
 import java.io.IOException;
 
 @Controller
-@RequestMapping(value = "/covers")
 public class CoverController {
 
     @Autowired
     public CoverService coverService;
 
-    @PostMapping(value = "upload")
     public ResponseEntity uploadCover(@RequestParam MultipartFile cover){
         return this.coverService.uploadToFileSystem(cover);
     }

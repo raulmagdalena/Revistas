@@ -5,51 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f024af13-78b7-4a08-8b1d-56eeab8863a8" name="Default Changelist" comment="daily update">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_4_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_4_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_session_spring_session_data_redis_2_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CollectionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CoverController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Collection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Cover.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/CollectionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revistas/services/CoverService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Collection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/exceptions/UserAlreadyExistsException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/repositories/UserRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/validation/EmailValidator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/validation/PasswordMatches.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/validation/PasswordMatchesValidator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/revistas/validation/ValidEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_1_7_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_7_0_1_Final.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/revistas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/revistas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/EditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/EditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/validation/EmailValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/validation/ValidEmail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/users/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/RegistrationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/users/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/users/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CoverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CoverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,6 +165,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/revistas/controllers/AuthorController.java</url>
           <line>31</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
