@@ -37,7 +37,9 @@ public class Magazine {
     @ManyToMany(mappedBy = "magazines")
     private Set<Category> categories = new HashSet<Category>();
 
-    @OneToOne(mappedBy = "collection")
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "collection_id")
     private Collection collection;
 
     //TODO frequency property

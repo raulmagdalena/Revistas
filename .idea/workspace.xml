@@ -6,9 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="f024af13-78b7-4a08-8b1d-56eeab8863a8" name="Default Changelist" comment="daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CoverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CoverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/CoverController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/issues/addissue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Collection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Cover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Cover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/entities/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/CollectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/repositories/CollectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revistas/services/CoverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revistas/services/CoverService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editors/editors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazines.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/magazines/magazines.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/EditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/EditorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/controllers/IssueController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Collection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Collection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Issue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/Magazine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revistas/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/validation/EmailValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revistas/validation/ValidEmail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/editors/editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/editors/editors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/issues/addissue.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/issues/addissue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/magazines/magazines.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/magazines/magazines.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +56,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1nmu2my9bQOx3ClIs6EEDyFEzWR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -165,11 +190,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/revistas/controllers/AuthorController.java</url>
           <line>31</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/revistas/controllers/IssueController.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

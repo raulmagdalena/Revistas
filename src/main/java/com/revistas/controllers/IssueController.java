@@ -11,15 +11,16 @@ import com.revistas.exceptions.MagazineNotFoundException;
 import com.revistas.repositories.IssueRepository;
 import com.revistas.repositories.MagazineRepository;
 import com.revistas.repositories.TagRepository;
+import com.revistas.services.CoverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 
 
@@ -33,7 +34,8 @@ public class IssueController {
     private MagazineRepository magazineRepository;
     @Autowired
     private TagRepository tagRepository;
-    @Autowired CoverController coverController;
+    @Autowired
+    private CoverService coverService;
 
     public IssueController(IssueRepository repository){
         this.repository = repository;
@@ -82,9 +84,13 @@ public class IssueController {
                     issue.addTag(newtag);
                 }
             }
-            if(coverController.uploadCover(issue.getCover()) != null)
-            repository.save(issue);
-            return "redirect:/issues/issue/" + issue.getIdIssue();
+            if(result.getFieldValue("cover") != null){
+                File file = new File(result.getFieldValue("cover").toString());
+                String absolutePath = file.getAbsolutePath();
+                if(coverService.uploadToFileSystem(absolutePath) != null);
+                repository.save(issue);
+                return "redirect:/issues/issue/" + issue.getIdIssue();
+            }
         }
         return "redirect:/issues/new";
     }

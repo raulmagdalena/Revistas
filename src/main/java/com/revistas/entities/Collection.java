@@ -22,7 +22,7 @@ public class Collection {
     private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_magazine", referencedColumnName = "id_collection")
+    @PrimaryKeyJoinColumn
     private Magazine magazine;
 
     @OneToMany(targetEntity = Issue.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "collection")

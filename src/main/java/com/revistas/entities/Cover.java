@@ -17,7 +17,9 @@ public class Cover {
     @Column(name = "fileName")
     private String fileName;
 
-    @OneToOne(mappedBy = "cover")
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "issue_id")
     private Issue issue;
 
     public Long getIdCover() {

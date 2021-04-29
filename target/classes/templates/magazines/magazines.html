@@ -15,12 +15,13 @@
 </nav>
 <div class="container">
     <div th:switch="${magazines}">
-        <h2 th:case="null" th:utext="#{text.pages.magazines.nomagazines}"></h2>
+        <h2 th:case="${not #lists.isEmpty(magazines)}" th:utext="#{text.pages.magazines.nomagazines}"></h2>
             <div th:case="*">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col" th:utext="#{text.pages.magazines.themagazinename}"></th>
+                            <th scope="col"><a th:href="@{/magazines/addmagazine/}" th:text="#{label.pages.navigation.addmagazines}"></a></th>
                         </tr>
                     </thead>
                     <tbody>

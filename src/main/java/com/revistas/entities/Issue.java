@@ -48,7 +48,7 @@ public class Issue {
     private Set<Tag> tags = new HashSet<Tag>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_cover", referencedColumnName = "id_issue")
+    @PrimaryKeyJoinColumn
     private Cover cover;
 
     @CreationTimestamp

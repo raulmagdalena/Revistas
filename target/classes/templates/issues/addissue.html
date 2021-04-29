@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-3">
                       <label th:utext="#{label.pages.newissue.cover}"></label>
-                      <input type="file" class="form-control" id="cover" th:field="*{cover}">
+                      <input type="file" class="form-control" id="cover" th:field="*{issue.cover}">
                       <span th:if="${#fields.hasErrors('cover')}" th:errors="*{cover}">  </span>
                 </div>
                 <div class="col-12">
