@@ -6,6 +6,7 @@ import com.revistas.entities.Magazine;
 import com.revistas.exceptions.MagazineNotFoundException;
 import com.revistas.repositories.CategoryRepository;
 import com.revistas.repositories.EditorRepository;
+import com.revistas.repositories.IssueRepository;
 import com.revistas.repositories.MagazineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -29,6 +30,8 @@ public class MagazineController {
     private EditorRepository editorRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private IssueRepository issueRepository;
 
     public MagazineController(MagazineRepository repository){
         this.repository = repository;
@@ -46,7 +49,9 @@ public class MagazineController {
     @GetMapping(value = "/magazine/{idMagazine}")
     public String getMagazineById(@PathVariable Long idMagazine, Model model){
         try{
-             model.addAttribute("magazine",repository.findByIdMagazine(idMagazine));
+            model.addAttribute("magazine",repository.findByIdMagazine(idMagazine));
+            List issues = issueRepository.findByIdMagazineOrderByNumberASC(idMagazine);
+            model.addAttribute("issues", issues);
             return "/magazines/magazine";
         } catch (EmptyResultDataAccessException e){
             throw new MagazineNotFoundException(idMagazine);
@@ -85,7 +90,6 @@ public class MagazineController {
     @PostMapping("/savemagazine")
     public String saveMagazine(@ModelAttribute Magazine magazine, BindingResult result, @RequestParam("categories") String strCategories, Model model){
         if(result.hasErrors()) {
-            Set<Category> categoriesSet = new HashSet<>();
             for (String category : strCategories.split(",")) {
                 if (category.equals("") || category == null) {
                     //don't do anything
@@ -98,10 +102,9 @@ public class MagazineController {
                         cat.setCategoryName(trimCat);
                         categoryRepository.save(cat);
                     }
-                    categoriesSet.add(cat);
+                    magazine.addCategory(cat);
                 }
             }
-            magazine.setCategories(categoriesSet);
             repository.save(magazine);
             return "redirect:/magazines/magazine/" + magazine.getIdMagazine();
         }

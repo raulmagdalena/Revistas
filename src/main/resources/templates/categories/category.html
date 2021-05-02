@@ -7,24 +7,30 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Custom styles -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
-    <title th:utext="#{label.pages.editor.title}"></title>
+    <title th:text="#{text.pages.category.title}"></title>
 </head>
 <body>
 <nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
 </nav>
 <div class="container">
-    <div class="card">
+    <div class="card mb-3">
+        <div class="card-header" th:text="${category.categoryName}"></div>
         <div class="card-body">
-            <div class="card-title">
-                <h2 class="card-text" th:utext="${editor.editorName}"></h2>
-            </div>
-            <span th:if="${editor.magazines != null}"></span>
-                <ul class="list-group" th:each="magazine : ${editor.magazines}">
-                    <li class="list-group-item"><a th:href="@{/magazines/magazine/{id}(id=${magazine.idMagazine})}" th:utext="${magazine.magazineName}"></a></li>
-                </ul>
-        </div>
-        <div class="card-footer">
-            <a th:href="@{/magazines/new/{idEditor}(idEditor=${editor.idEditor})}" th:utext="#{text.pages.editor.addmagazine}"></a>
+            <h2 th:text="#{text.pages.category.list} + ' ' + ${category.categoryName}"></h2>
+            <table class="table table-stripped">
+                <thead>
+                <tr>
+                    <th scope="col" th:text="#{text.pages.category.tableorder}"></th>
+                    <th scope="col" th:text="#{text.pages.category.tablemagazine}"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="magazine, iterStat : ${category.magazines}">
+                    <th scope="row" th:text="${iterStat.index + 1}"></th>
+                    <td scope="row"><a th:href="@{/magazines/magazine/{idMagazine}(idMagazine=${magazine.idMagazine})}" th:text="${magazine.magazineName}"></a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

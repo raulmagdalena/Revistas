@@ -1,13 +1,11 @@
 package com.revistas.controllers;
 
 
-import com.revistas.entities.Article;
-import com.revistas.entities.Issue;
-import com.revistas.entities.Magazine;
-import com.revistas.entities.Tag;
+import com.revistas.entities.*;
 import com.revistas.exceptions.IssueNotFoundException;
 import com.revistas.exceptions.MagazineNoIdException;
 import com.revistas.exceptions.MagazineNotFoundException;
+import com.revistas.repositories.ArticleRepository;
 import com.revistas.repositories.IssueRepository;
 import com.revistas.repositories.MagazineRepository;
 import com.revistas.repositories.TagRepository;
@@ -18,10 +16,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 @Controller
@@ -36,6 +41,8 @@ public class IssueController {
     private TagRepository tagRepository;
     @Autowired
     private CoverService coverService;
+    @Autowired
+    private ArticleRepository articleRepository;
 
     public IssueController(IssueRepository repository){
         this.repository = repository;
@@ -49,25 +56,27 @@ public class IssueController {
     }
 
     //Create a new issue
-    @GetMapping("/new/{idMagazine}")
-    public String newIssueForm(@PathVariable(required = true) Long idMagazine, Model model){
+    @GetMapping(value = {"/new", "/new/{idMagazine}"})
+    public String newIssueForm(@PathVariable(required = false) Long idMagazine, Model model){
         if(idMagazine != null) {
             try {
                 Magazine magazine = magazineRepository.findByIdMagazine(idMagazine);
                 model.addAttribute("issue", new Issue());
                 model.addAttribute("magazine", magazine);
-                return "/issues/addissue";
             } catch (EmptyResultDataAccessException e){
                 throw new MagazineNotFoundException(idMagazine);
             }
         }else{
-            throw new MagazineNoIdException();
+            List<Magazine> listMagazines = magazineRepository.findAll();
+            model.addAttribute("issue", new Issue());
+            model.addAttribute("editors", listMagazines);
         }
+        return "/issues/addissue";
     }
 
     //Save the issue
     @PostMapping("/saveissue")
-    public String saveIssue(@ModelAttribute Issue issue, BindingResult result, @RequestParam("tags") String strTags ){
+    public String saveIssue(@ModelAttribute Issue issue, BindingResult result, @RequestParam("tags") String strTags, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){
             for (String tag : strTags.split(",")){
                 if(tag.equals("") || tag == null){
@@ -84,12 +93,15 @@ public class IssueController {
                     issue.addTag(newtag);
                 }
             }
-            if(result.getFieldValue("cover") != null){
-                File file = new File(result.getFieldValue("cover").toString());
-                String absolutePath = file.getAbsolutePath();
-                if(coverService.uploadToFileSystem(absolutePath) != null);
+            try {
                 repository.save(issue);
+                redirectAttributes.addFlashAttribute("message", "success");
                 return "redirect:/issues/issue/" + issue.getIdIssue();
+            }catch (Exception e){
+                if(e instanceof SQLIntegrityConstraintViolationException){
+
+                }
+                return "redirect:/issues/new";
             }
         }
         return "redirect:/issues/new";
@@ -97,9 +109,15 @@ public class IssueController {
 
     //Get one issue by id
     @GetMapping(value = "/issue/{idIssue}")
-    public String getIssueById(@PathVariable Long idIssue, Model model){
+    public String getIssueById(@PathVariable Long idIssue, Model model, HttpServletRequest request){
         try{
+            Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
+            if(inputFlashMap != null){
+                String success = (String) inputFlashMap.get("message");
+            }
+            Issue issue = repository.findByIdIssue(idIssue);
             model.addAttribute("issue",repository.findByIdIssue(idIssue));
+            model.addAttribute("articles", articleRepository.findByIdIssueOrderByArticleOrderASC(issue.getIdIssue()));
             return "/issues/issue";
         } catch (EmptyResultDataAccessException e){
             throw new IssueNotFoundException(idIssue);

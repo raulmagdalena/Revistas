@@ -47,18 +47,22 @@
                 </div>
                   <div class="col-md-3">
                       <label th:utext="#{label.pages.newissue.magazine}"></label>
-                      <select th:field="*{magazine}" class="form-control" required>
-                      <option th:each="mag : ${magazine}" th:text="${mag.magazineName}" th:value="${mag.idMagazine}"/>
-                      </select>
+                      <div class="input-group">
+                          <th:block th:if="${not #lists.isEmpty(magazines)}">
+                              <select th:field="*{magazine}" class="form-control">
+                                  <option th:each="magazine : ${magazines}" th:text="${magazine.magazineName}" th:value="${magazine.idMagazine}"></option>
+                              </select>
+                          </th:block>
+                          <th:block th:if="${#lists.isEmpty(magazines)}">
+                              <select th:field="*{magazine}" class="form-control">
+                                  <option th:text="${magazine.magazineName}" th:value="${magazine.idMagazine}"></option>
+                              </select>
+                          </th:block>
+                      </div>
                 </div>
                 <div class="col-md-3">
                       <label th:text="#{label.pages.newissue.tags}"></label>
                       <input type="text" class="form-control" id="strTags" th:field="*{tags}">
-                </div>
-                <div class="col-md-3">
-                      <label th:utext="#{label.pages.newissue.cover}"></label>
-                      <input type="file" class="form-control" id="cover" th:field="*{issue.cover}">
-                      <span th:if="${#fields.hasErrors('cover')}" th:errors="*{cover}">  </span>
                 </div>
                 <div class="col-12">
                     <table class="table table-striped">

@@ -93,6 +93,10 @@ public class Article {
         this.issue = issue;
     }
 
+    public Long getIdIssue(){
+        return this.issue.getIdIssue();
+    }
+
     public Timestamp getCreateDateTime() {
         return createDateTime;
     }

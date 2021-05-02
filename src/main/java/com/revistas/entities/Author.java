@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class Author {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "id_author", nullable = false), inverseJoinColumns = @JoinColumn(name = "id_article", nullable = false))
-    private Set<Article> articles =new HashSet<Article>();
+    private List<Article> articles =new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "creation_date_time")
@@ -37,7 +38,7 @@ public class Author {
 
     public Author(){}
 
-    public Author(String authorName, Set<Article> articles) {
+    public Author(String authorName, List<Article> articles) {
         this.authorName = authorName;
         this.articles = articles;
     }
@@ -58,11 +59,11 @@ public class Author {
         this.authorName = authorName;
     }
 
-    public Set<Article> getArticles() {
+    public List<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(Set<Article> articles) {
+    public void setArticles(List<Article> articles) {
         this.articles = articles;
     }
 

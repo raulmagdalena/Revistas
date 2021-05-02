@@ -19,18 +19,18 @@
         <table class="table table-stripped">
             <thead>
                 <tr>
-                    <th scope="col" th:text="#{label.pages.author.tableindex}"></th>
-                    <th scope="col" th:text="#{label.pages.author.tablearticle}"></th>
-                    <th scope="col" th:tetx="#{label.pages.author.tableissue}"></th>
-                    <th scope="col" th:text="#{label.pages.author.tabledate}"></th>
+                    <th scope="col" th:text="#{text.pages.author.tableindex}"></th>
+                    <th scope="col" th:text="#{text.pages.author.tablearticle}"></th>
+                    <th scope="col" th:text="#{text.pages.author.tableissue}"></th>
+                    <th scope="col" th:text="#{text.pages.author.tabledate}"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="article, iterStat : ${author.articles}" th:if="${article}">
-                    <th scope="row" th:text="${iterStat.index + 1}"></th>
-                    <td th:text="{article.title}"></td>
-                    <td th:text="{article.authors}"></td>
-                    <td th:text="{article.issue.issueDate}"></td>
+                <tr th:each="article : ${author.articles}">
+                    <th scope="row" th:text="${articleStat.index + 1}"></th>
+                    <td scope="row" th:text="${article.title}"></td>
+                    <!--<td scope="row"><a th:href="@{/issues/issue/{id}(id=${article.issue.idIssue})}" th:text="${article.issue.title}"></a></td>
+                    <td scope="row" th:text="${article.issue.issueDate}"></td>-->
                 </tr>
             </tbody>
         </table>

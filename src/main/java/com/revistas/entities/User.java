@@ -40,9 +40,6 @@ public class User {
     @NotEmpty
     private String matchingPassword;
 
-    @OneToMany(targetEntity = Collection.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "user")
-    private Set<Collection> collections = new HashSet<Collection>();
-
     @CreationTimestamp
     @Column(name = "create_date_time")
     private java.sql.Timestamp  createDateTime;
@@ -97,14 +94,6 @@ public class User {
 
     public void setMatchingPassword(String matchingPassword) {
         this.matchingPassword = matchingPassword;
-    }
-
-    public Set<Collection> getCollections() {
-        return collections;
-    }
-
-    public void setCollections(Set<Collection> collections) {
-        this.collections = collections;
     }
 
     public Timestamp getCreateDateTime() {

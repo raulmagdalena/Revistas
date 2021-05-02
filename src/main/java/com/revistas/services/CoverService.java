@@ -1,50 +1,49 @@
 package com.revistas.services;
 
+import com.revistas.entities.Cover;
+import com.revistas.entities.Issue;
+import com.revistas.repositories.CoverRepository;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Service
 public class CoverService {
 
-    public final String storageDirectoryPath = "\\resources\\img";
+    @Autowired
+    private CoverRepository repository;
 
-    public String uploadToFileSystem(String cover){
-        // extract the file name of the cover image
-        String fileName = StringUtils.cleanPath(cover);
-        // the path for the place where the cover is stored
-        Path storageDirectory = Paths.get(storageDirectoryPath);
-        // check if the folders exists
-        if (!Files.exists(storageDirectory)){
-            try {
-                Files.createDirectories(storageDirectory);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        Path origen = Paths.get(cover);
-        Path destination = Paths.get(storageDirectory.toString() + "\\" + fileName);
+    @Value("${app.upload.dir:${user.home}}")
+    public String storageDirectoryPath;
+
+    public Cover uploadToFileSystem(MultipartFile file, Issue issue) throws IOException {
         try {
-            Files.copy(origen,destination);
-        } catch (IOException e){
+            Path copyLocation = Paths
+                    .get(storageDirectoryPath + File.separator + StringUtils.cleanPath(file.getOriginalFilename()));
+            Files.copy(file.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
+            Cover newCover = new Cover();
+            newCover.setFileName(file.getOriginalFilename());
+            newCover.setIssue(issue);
+            repository.save(newCover);
+            return newCover;
+        } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        // the response will be the url
-        String fileDownloadedUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/resources/img")
-                .path(fileName)
-                .toUriString();
-        return fileDownloadedUri;
     }
 
     public byte[] getImageWithMediaType(String coverName) throws IOException{
-        Path destination = Paths.get(storageDirectoryPath + "\\" + coverName);
+        Path destination = Paths.get(storageDirectoryPath + "/" + coverName);
         return IOUtils.toByteArray(destination.toUri());
     }
 }

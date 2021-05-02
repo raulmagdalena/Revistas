@@ -2,6 +2,7 @@ package com.revistas.entities;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -37,10 +38,11 @@ public class Magazine {
     @ManyToMany(mappedBy = "magazines")
     private Set<Category> categories = new HashSet<Category>();
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "collection_id")
-    private Collection collection;
+    //@OneToOne(optional = true)
+    //@Nullable
+    //@MapsId
+    //@JoinColumn(name = "collection_id")
+    //private Collection collection;
 
     //TODO frequency property
     //TODO language property
@@ -123,11 +125,4 @@ public class Magazine {
         this.updateDateTime = updateDateTime;
     }
 
-    public Collection getCollection() {
-        return collection;
-    }
-
-    public void setCollection(Collection collection) {
-        this.collection = collection;
-    }
 }

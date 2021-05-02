@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/articles")
@@ -60,6 +61,7 @@ public class ArticleController {
     @PostMapping(value = "/savearticle")
     public String saveArticle(@ModelAttribute Article article, BindingResult result, @RequestParam("authors") String strAuthors,
                               @RequestParam("idIssue") Long idIssue){
+        //TODO envoltar tota la lógica en un try, per que no es guardi un autor, si no es guarda el article
         if(result.hasErrors()){
             //Long id = Long.parseLong(idIssue);
             for (String author : strAuthors.split(",")){
@@ -76,6 +78,7 @@ public class ArticleController {
                     article.setIssue(issueRepository.findByIdIssue(idIssue));
                 }
             }
+            //TODO comprovar que no existeix un article amb el mateix ordre o títol
             repository.save(article);
             return "redirect:/issues/issue/" + idIssue;
         }
@@ -84,10 +87,14 @@ public class ArticleController {
 
     //Show article by id
     @GetMapping(value = "/article/{idArticle}")
-    public String getArticleById(@PathVariable Long idArticle, Model model){
+    public ModelAndView getArticleById(@PathVariable Long idArticle){
         try {
-            model.addAttribute("article", repository.findById(idArticle));
-            return "/articles/article";
+            ModelAndView modelAndView = new ModelAndView("articles/article");
+            Article article = repository.findById(idArticle);
+            modelAndView.addObject("article", article);
+            Issue issue = issueRepository.findByIdIssue(article.getIdIssue());
+            modelAndView.addObject("issue", issue);
+            return modelAndView;
         } catch (EmptyResultDataAccessException e){
             throw new IssueNotFoundException(idArticle);
         }

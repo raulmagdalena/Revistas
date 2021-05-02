@@ -30,20 +30,30 @@
             </div>
             <div class="col-md-12">
                 <div class="card-body">
-                    <span th:text="#{label.pages.magazine.issb}"></span><p class="card-text" th:text="${magazine.magazineIssn}"></p>
+                    <span th:text="#{label.pages.magazine.issn}"></span><p class="card-text" th:text="${magazine.magazineIssn}"></p>
                     <label th:text="#{label.pages.magazine.editor}"></label><p class="card-text" th:text="${magazine.editor.editorName}"></p>
                     <label th:text="#{label.pages.magazine.categories}"></label>
-                    <a th:each="category : ${magazine.categories}" th:href="@{/categories/category/{idCategory}(idCategory=${category.idCategory})}" th:text="${category.categoryName}">, </a>
+                    <block th:each="cat, iterStat : ${magazine.categories}">
+                        <a th:href="@{/categories/category/{idCategory}(idCategory=${cat.idCategory})}" th:text="!${iterStat.last} ? ${cat.categoryName} + ', ': ${cat.categoryName}"></a>
+                    </block>
                 </div>
-                <div class="card-body">
-                    <span th:if="${magazine.issues != null}"></span>
-                    <div class="card-header" th:text="#{text.pages.magazine.issues}"></div>
-                    <ul  class="list-group list-group-flush" th:each="issue : ${magazine.issues}">
-                        <li class="list-group-item"><a th:href="@{/issues/issue/{id}(id=${issue.idIssue})}" th:text="${issue.number}"></a></li>
-                    </ul>
-                    <span th:unless="${magazine.issues == null}"></span>
-                    <p th:text="#{text.pages.magazine.noissues}"></p>
-                </div>
+                <div class="card-body col-md-12" th:text="#{text.pages.magazine.issues}"></div>
+                <table class="table table-stripped">
+                    <thead>
+                    <tr>
+                        <th scope="col" th:text="#{text.pages.magazine.issuenumber}"></th>
+                        <th scope="col" th:text="#{text.pages.magazine.issuetitle}"></th>
+                        <th scope="col" th:text="#{text.pages.magazine.issuedate}"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="issue : ${issues}">
+                        <th scope="row" th:text="${issue.number}"></th>
+                        <td scope="row"><a th:href="@{/issues/issue/{idIssue}(idIssue=${issue.idIssue})}" th:text="${issue.title}"></a></td>
+                        <td scope="row" th:text="${issue.issueDate}"></td>
+                    </tr>
+                    </tbody>
+                </table>
                 <div class="card-footer">
                     <a th:href="@{/issues/new/{idMagazine}(idMagazine=${magazine.idMagazine})}" th:text="#{text.pages.magazine.addissue}"></a>
                 </div>

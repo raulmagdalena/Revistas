@@ -12,6 +12,9 @@
 <nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
 </nav>
 <div class="container">
+    <div class="alert alert-success" role="alert" th:if="${success}" th:text="#{text.pages.issue.success} + ${issue.title}">
+
+    </div>
     <div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-4">
@@ -20,7 +23,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${issue.title}"></h5>
-                    <p class="card-text"><a th:href="@{/magazines/magazine/{id}(id=${issue.magazine.idMagazine})}" th:text="${issue.magazine.magazineName}"></a></p>
+                    <p class="card-text"><a th:href="@{/magazines/magazine/{idEditor}(idEditor=${issue.magazine.idMagazine})}" th:text="${issue.magazine.magazineName}"></a></p>
                 </div>
             </div>
             <div class="col-md-12">
@@ -30,6 +33,7 @@
                         <label th:text="#{label.pages.issue.issuepages}"></label><li class="list-group-item" th:text="${issue.pages}"></li>
                         <label th:text="#{label.pages.issue.issuedate}"></label><li class="list-group-item" th:text="${issue.issueDate}"></li>
                         <label th:text="#{label.pages.issue.issueissn}"></label><li class="list-group-item" th:text="${issue.issueIssn}"></li>
+                        <label th:text="#{label.pages.issue.issuetags}"></label><li class="list-group-item"><a th:each="tag, iterStat : ${issue.tags}" th:href="@{/tags/tag/{id}(id=${tag.idTag})}" th:text="!${iterStat.last} ? ${tag.tagName} + ', ': ${tag.tagName}"></a></li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +47,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="article : ${issue.articles}">
+                    <tr th:each="article : ${articles}">
                         <th scope="row" th:text="${article.order}"></th>
                         <td scope="row"><a th:href="@{/articles/article/{idArticle}(idArticle=${article.idArticle})}" th:text="${article.title}"></a></td>
                         <td scope="row"><a th:each="author : ${article.authors}" th:href="@{/authors/author/{idAuthor}(idAuthor=${author.idAuthor})}" th:text="${author.authorName}"></a></td>
