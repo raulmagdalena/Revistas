@@ -2,7 +2,7 @@ package com.revistas.entities;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.sql.Timestamp;
@@ -26,6 +26,7 @@ public class Issue {
     @Column(name = "issue_pages", nullable = true)
     private Integer pages;
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "issue_date", nullable = true)
     private Date issueDate;
 

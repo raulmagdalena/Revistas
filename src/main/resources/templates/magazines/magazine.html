@@ -17,7 +17,7 @@
 </div>
 
 <div class="container">
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card md-12">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="" alt="">
@@ -30,8 +30,7 @@
             </div>
             <div class="col-md-12">
                 <div class="card-body">
-                    <span th:text="#{label.pages.magazine.issn}"></span><p class="card-text" th:text="${magazine.magazineIssn}"></p>
-                    <label th:text="#{label.pages.magazine.editor}"></label><p class="card-text" th:text="${magazine.editor.editorName}"></p>
+                    <label th:text="#{label.pages.magazine.issn}"></label><p class="card-text" th:text="${magazine.magazineIssn}"></p>
                     <label th:text="#{label.pages.magazine.categories}"></label>
                     <block th:each="cat, iterStat : ${magazine.categories}">
                         <a th:href="@{/categories/category/{idCategory}(idCategory=${cat.idCategory})}" th:text="!${iterStat.last} ? ${cat.categoryName} + ', ': ${cat.categoryName}"></a>

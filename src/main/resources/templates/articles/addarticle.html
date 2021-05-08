@@ -52,6 +52,7 @@
                     <input type="text" class="form-control" id="authors" th:field="*{authors}">
                     <span th:if="${#fields.hasErrors('authors')}" th:errors="*{authors}"></span>
                 </div>
+                    &nbsp;
                     <input type="hidden" th:name="idIssue" th:value="${issue.idIssue}">
                     <button class="btn btn-primary" type="submit" th:utext="#{label.pages.addarticle.submit}"></button>
             </form>

@@ -2,8 +2,6 @@ package com.revistas.entities;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.sql.Timestamp;

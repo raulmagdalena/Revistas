@@ -8,6 +8,7 @@ import com.revistas.repositories.CategoryRepository;
 import com.revistas.repositories.EditorRepository;
 import com.revistas.repositories.IssueRepository;
 import com.revistas.repositories.MagazineRepository;
+import com.revistas.services.IssueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class MagazineController {
     @Autowired
     private CategoryRepository categoryRepository;
     @Autowired
-    private IssueRepository issueRepository;
+    private IssueService issueService;
 
     public MagazineController(MagazineRepository repository){
         this.repository = repository;
@@ -47,10 +48,12 @@ public class MagazineController {
 
     //Get one magazine by id
     @GetMapping(value = "/magazine/{idMagazine}")
-    public String getMagazineById(@PathVariable Long idMagazine, Model model){
+    public String getMagazineById(@PathVariable Long idMagazine, Model model,
+                @RequestParam(defaultValue= "0", required = false) Integer page,
+                @RequestParam(defaultValue = "10", required = false) Integer size){
         try{
             model.addAttribute("magazine",repository.findByIdMagazine(idMagazine));
-            List issues = issueRepository.findByIdMagazineOrderByNumberASC(idMagazine);
+            List issues = issueService.getAllIssuePage(page,size,idMagazine);
             model.addAttribute("issues", issues);
             return "/magazines/magazine";
         } catch (EmptyResultDataAccessException e){

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -7,26 +7,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Custom styles -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
-    <title th:utext="#{label.pages.editor.title}"></title>
+    <meta charset="UTF-8">
+    <title th:utext="#{text.pages.tag.title}"></title>
 </head>
 <body>
 <nav class="navbar navbar-default" th:insert="~{navigation :: navigation}">
 </nav>
 <div class="container">
-    <div class="card md-12">
-        <div class="card-body">
-            <div class="card-title">
-                <h2 class="card-text" th:text="${editor.editorName}"></h2>
-            </div>
-            <span th:if="${editor.magazines != null}"></span>
-                <ul class="list-group" th:each="magazine : ${editor.magazines}">
-                    <li class="list-group-item"><a th:href="@{/magazines/magazine/{id}(id=${magazine.idMagazine})}" th:utext="${magazine.magazineName}"></a></li>
-                </ul>
-        </div>
-        <div class="card-footer">
-            <a th:href="@{/magazines/new/{idEditor}(idEditor=${editor.idEditor})}" th:utext="#{text.pages.editor.addmagazine}"></a>
-        </div>
-    </div>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th scope="col" th:text="#{text.pages.tags.tag}"></th>
+                <th scope="col" th:text="{text.pages.tags.issues}"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" th:each="tag : ${tags}">
+                <td th:text="${tag.name}"></td>
+                <td><a th:href="@{/issues/issues/{tagId}(tagId=${tag.tagId})}" th:text="${tag.count}"></a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <footer class="footer"th:insert="~{footer :: footer}">
 </footer>

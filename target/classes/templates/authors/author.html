@@ -29,8 +29,10 @@
                 <tr th:each="article : ${author.articles}">
                     <th scope="row" th:text="${articleStat.index + 1}"></th>
                     <td scope="row" th:text="${article.title}"></td>
-                    <!--<td scope="row"><a th:href="@{/issues/issue/{id}(id=${article.issue.idIssue})}" th:text="${article.issue.title}"></a></td>
-                    <td scope="row" th:text="${article.issue.issueDate}"></td>-->
+                    <!--<div th:object="${article.issue}">
+                    <td scope="row"><a th:href="@{/issues/issue/{idIssue}(idIssue=*{idIssue})}" th:text="*{title}"></a></td>
+                    <td scope="row" th:text="*{issue.issueDate}"></td>
+                    </div>-->
                 </tr>
             </tbody>
         </table>

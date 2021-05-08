@@ -56,8 +56,8 @@ public class IssueController {
     }
 
     //Create a new issue
-    @GetMapping(value = {"/new", "/new/{idMagazine}"})
-    public String newIssueForm(@PathVariable(required = false) Long idMagazine, Model model){
+    @GetMapping("/new/{idMagazine}")
+    public String newIssueForm(@PathVariable(required = true) Long idMagazine, Model model){
         if(idMagazine != null) {
             try {
                 Magazine magazine = magazineRepository.findByIdMagazine(idMagazine);
@@ -76,7 +76,7 @@ public class IssueController {
 
     //Save the issue
     @PostMapping("/saveissue")
-    public String saveIssue(@ModelAttribute Issue issue, BindingResult result, @RequestParam("tags") String strTags, RedirectAttributes redirectAttributes) {
+    public String saveIssue(@ModelAttribute Issue issue, BindingResult result, @RequestParam("tags") String strTags, RedirectAttributes redirectAttributes, Model model) {
         if(result.hasErrors()){
             for (String tag : strTags.split(",")){
                 if(tag.equals("") || tag == null){

@@ -25,7 +25,7 @@
             <form action="#" method="post" th:object="${magazine}" th:action="@{/magazines/savemagazine}">
                 <div class="form-group row">
                     <div class="mb-3">
-                        <label th:utext="#{label.pages.newmagazine.magazinename}"></label>
+                        <label th:text="#{label.pages.newmagazine.magazinename}"></label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="magazinename" th:field="*{magazineName}"/>
                             <span th:if="${#fields.hasErrors('magazineName')}" th:errors="*{magazineName}"></span>
